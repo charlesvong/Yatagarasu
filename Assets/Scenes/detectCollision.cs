@@ -16,11 +16,12 @@ public class detectCollision : MonoBehaviour
         
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision collision)
     {
-        if (other.gameObject.tag == "Player")
+        Debug.Log("collide");
+        if (collision.collider.name == "Player_1")
         {
-            Destroy(other.gameObject);
+            Destroy(collision.gameObject);
         }
     }
 }
