@@ -41,22 +41,22 @@ public class playerMovement : MonoBehaviour
 
         if (Input.GetKey(forward))
         {
-            move += new Vector3(playerSpeed * Time.deltaTime, 0, -playerSpeed * Time.deltaTime);
+            move += new Vector3(-playerSpeed * Time.deltaTime, 0, playerSpeed * Time.deltaTime);
             transform.forward = move;
         }
         if (Input.GetKey(left))
         {
-            move += new Vector3(playerSpeed * Time.deltaTime, 0, playerSpeed * Time.deltaTime);
+            move += new Vector3(-playerSpeed * Time.deltaTime, 0, -playerSpeed * Time.deltaTime);
             transform.forward = move;
         }
         if (Input.GetKey(right))
         {
-            move += new Vector3(-playerSpeed * Time.deltaTime, 0, -playerSpeed * Time.deltaTime);
+            move += new Vector3(playerSpeed * Time.deltaTime, 0, playerSpeed * Time.deltaTime);
             transform.forward = move;
         }
         if (Input.GetKey(backward))
         {
-            move += new Vector3(-playerSpeed * Time.deltaTime, 0, playerSpeed * Time.deltaTime);
+            move += new Vector3(playerSpeed * Time.deltaTime, 0, -playerSpeed * Time.deltaTime);
             transform.forward = move;
         }
 
