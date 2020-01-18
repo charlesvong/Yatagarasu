@@ -13,6 +13,7 @@ public class playerMovement : MonoBehaviour
     public string backward;
     public string left;
     public string right;
+    private Vector3 warpPosition = Vector3.zero;
 
     void Start()
     {
@@ -62,12 +63,18 @@ public class playerMovement : MonoBehaviour
 
         controller.Move(move);
 
+        if (warpPosition != Vector3.zero)
+        {
+            transform.position = warpPosition;
+            warpPosition = Vector3.zero;
+        }
+
 
 
     }
-    void OnCollisionEnter(Collision other)
+    public void WarpToPosition(Vector3 newPosition)
     {
-        Debug.Log(other.collider.name);
+        warpPosition = newPosition;
     }
 
 }

@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class gatePass : MonoBehaviour
+public class keyCollect : MonoBehaviour
 {
-    public playerMovement player;
-    public Transform outPosition;
+    public GameObject key;
+    public GameObject player1;
+    public GameObject player2;
     // Start is called before the first frame update
     void Start()
     {
+        
     }
 
     // Update is called once per frame
@@ -19,9 +21,9 @@ public class gatePass : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("touched");
-        if (collision.collider.name == player.name) {
-            player.WarpToPosition(outPosition.position);
+        if (collision.collider.name==player1.name || collision.collider.name == player2.name) {
+            globalManager.keyCollected();
+            Destroy(key);
         }
     }
 }
