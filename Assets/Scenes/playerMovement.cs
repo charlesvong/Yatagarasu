@@ -34,34 +34,40 @@ public class playerMovement : MonoBehaviour
             gravity += Physics.gravity * gravityFactor * Time.deltaTime;
             move += gravity;
         }
-        else {
+        else
+        {
             gravity = Vector3.zero;
         }
 
-        if (Input.GetKey(forward)) {
-            move += new Vector3(0, 0, playerSpeed * Time.deltaTime);
+        if (Input.GetKey(forward))
+        {
+            move += new Vector3(playerSpeed * Time.deltaTime, 0, -playerSpeed * Time.deltaTime);
             transform.forward = move;
         }
         if (Input.GetKey(left))
         {
-            move += new Vector3(-playerSpeed * Time.deltaTime, 0, 0);
+            move += new Vector3(playerSpeed * Time.deltaTime, 0, playerSpeed * Time.deltaTime);
             transform.forward = move;
         }
         if (Input.GetKey(right))
         {
-            move += new Vector3(playerSpeed * Time.deltaTime, 0, 0);
+            move += new Vector3(-playerSpeed * Time.deltaTime, 0, -playerSpeed * Time.deltaTime);
             transform.forward = move;
         }
         if (Input.GetKey(backward))
         {
-            move += new Vector3(0, 0, -playerSpeed * Time.deltaTime);
+            move += new Vector3(-playerSpeed * Time.deltaTime, 0, playerSpeed * Time.deltaTime);
             transform.forward = move;
         }
 
         controller.Move(move);
-        
 
 
+
+    }
+    void OnCollisionEnter(Collision other)
+    {
+        Debug.Log(other.collider.name);
     }
 
 }
