@@ -1,11 +1,20 @@
 fileFormatVersion: 2
-guid: 370e41332651f4938b4bbf0e9b04cbd3
+guid: 20affd2f1d6254effab5597431422eb3
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable:
   - first:
-      74: -203655887218126122
-    second: Sneaking_Forward
+      74: -8515560403302317629
+    second: Cube.001|Cube.001Action
+  - first:
+      74: 8199798356239145933
+    second: Cube.001|CylinderAction
+  - first:
+      74: -5182580781479304208
+    second: Cylinder|Cube.001Action
+  - first:
+      74: -88723805440604879
+    second: Cylinder|CylinderAction
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -33,36 +42,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: Sneaking_Forward
-      takeName: mixamo.com
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 50
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    clipAnimations: []
     isReadable: 0
   meshes:
     lODScreenPercentages: []

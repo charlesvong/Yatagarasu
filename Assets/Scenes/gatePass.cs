@@ -14,12 +14,13 @@ public class gatePass : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.name == player.name) {
+        if (collision.collider.name == player.name)
+        {
             player.WarpToPosition(outPosition.position);
         }
     }
