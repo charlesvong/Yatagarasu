@@ -14,6 +14,7 @@ public class playerMovement : MonoBehaviour
     public string left;
     public string right;
     private Vector3 warpPosition = Vector3.zero;
+    public GameObject finalplayer;
 
     void Start()
     {
@@ -75,6 +76,15 @@ public class playerMovement : MonoBehaviour
     public void WarpToPosition(Vector3 newPosition)
     {
         warpPosition = newPosition;
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.collider.name == finalplayer.name) {
+            if (globalManager.haveKey()) {
+                globalManager.keyPassed();
+            }
+        }
     }
 
 }
