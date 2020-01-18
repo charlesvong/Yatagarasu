@@ -80,8 +80,10 @@ public class playerMovement : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (hit.collider.name == finalplayer.name) {
-            if (globalManager.haveKey()) {
+        if (hit.collider.name == finalplayer.name)
+        {
+            if (globalManager.haveKey())
+            {
                 globalManager.keyPassed();
             }
         }
