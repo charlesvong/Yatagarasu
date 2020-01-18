@@ -19,7 +19,6 @@ public class gatePass : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("touched");
         if (collision.collider.name == player.name) {
             player.WarpToPosition(outPosition.position);
         }
