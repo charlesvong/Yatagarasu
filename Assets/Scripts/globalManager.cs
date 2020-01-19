@@ -44,4 +44,9 @@ public class globalManager : MonoBehaviour
     public static void opened() {
         text = "box opened";
     }
+
+    public static void getMsg(string Msg)
+    {
+        text = Msg;
+    }
 }

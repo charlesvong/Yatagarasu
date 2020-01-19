@@ -17,9 +17,9 @@ public class gatePass : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision collision)
     {
-        if (other.name == player.name)
+        if (collision.collider.name == player.name)
         {
             player.WarpToPosition(outPosition.position);
         }
