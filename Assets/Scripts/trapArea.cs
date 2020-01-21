@@ -20,7 +20,7 @@ public class trapArea : MonoBehaviour
         
     }
 
-    void OnTriggerStay(Collider other) {
+    void OnTriggerEnter(Collider other) {
         if (other.name == "Player_1") {
             globalManager.getMsg("Monitoring activated");
             Object.material = block;

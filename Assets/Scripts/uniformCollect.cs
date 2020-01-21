@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class keyCollect : MonoBehaviour
+public class uniformCollect : MonoBehaviour
 {
-    public GameObject key;
+    public GameObject uniform;
     public GameObject player1;
     // Start is called before the first frame update
     void Start()
@@ -21,8 +21,9 @@ public class keyCollect : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.name==player1.name) {
-            globalManager.keyCollected();
-            Destroy(key);
+            globalManager.getMsg("Uniform changed");
+            globalManager.disguised();
+            Destroy(uniform);
         }
     }
 }

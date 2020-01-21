@@ -19,9 +19,12 @@ public class gatePass : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.name == player.name)
+        if (collision.collider.name == player.name && globalManager.isDisguised())
         {
             player.WarpToPosition(outPosition.position);
+        }
+        else {
+            globalManager.getMsg("Only guards can go through!");
         }
     }
 }

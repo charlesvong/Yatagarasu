@@ -7,8 +7,10 @@ public class globalManager : MonoBehaviour
 {
     private static int key = 0;
     private static bool passed = false;
-    private static string text;
+    private static bool disguise = false;
+    private static string text = "Get the key!!";
     public Text logText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,13 +30,13 @@ public class globalManager : MonoBehaviour
 
     public static void keyCollected() {
         key++;
-        text = "key collected";
+        text = "Key collected by Rook";
     }
 
     public static void keyPassed()
     {
         passed = true;
-        text = "key passed";
+        text = "Key passed to Raven";
     }
 
     public static bool canOpen() {
@@ -42,11 +44,21 @@ public class globalManager : MonoBehaviour
     }
 
     public static void opened() {
-        text = "box opened";
+        text = "Treasure aquired";
     }
 
     public static void getMsg(string Msg)
     {
         text = Msg;
+    }
+
+    public static void disguised()
+    {
+        disguise = true;
+    }
+
+    public static bool isDisguised()
+    {
+        return disguise;
     }
 }

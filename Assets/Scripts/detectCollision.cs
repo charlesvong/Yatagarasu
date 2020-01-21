@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class detectCollision : MonoBehaviour
 {
+    public GameObject player;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,9 +19,10 @@ public class detectCollision : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.name == "Player_1")
+        if (other.name == player.name && !globalManager.isDisguised())
         {
             Destroy(other.gameObject);
+            globalManager.getMsg("Player has been caught :(");
         }
     }
 }
