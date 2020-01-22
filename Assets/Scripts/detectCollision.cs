@@ -19,7 +19,7 @@ public class detectCollision : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.name == player.name && !globalManager.isDisguised())
+        if ((other.name == player.name && !globalManager.isDisguised()) || other.name == "Player_3")
         {
             Destroy(other.gameObject);
             globalManager.getMsg("Player has been caught :(");

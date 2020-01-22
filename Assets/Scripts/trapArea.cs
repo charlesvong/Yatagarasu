@@ -8,6 +8,8 @@ public class trapArea : MonoBehaviour
     public Material pass;
     public Material block;
     public Renderer Object;
+    public guardsRotation guard1;
+    public guardsRotation guard2;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,9 +24,10 @@ public class trapArea : MonoBehaviour
 
     void OnTriggerEnter(Collider other) {
         if (other.name == "Player_1") {
-            globalManager.getMsg("Monitoring activated");
+            globalManager.getMsg("Other guards are staring at Rook!");
             Object.material = block;
-
+            guard1.stareAt(this.transform);
+            guard2.stareAt(this.transform);
         }
     }
 
@@ -32,9 +35,10 @@ public class trapArea : MonoBehaviour
     {
         if (other.name == "Player_1")
         {
-            globalManager.getMsg("Monitoring deactivated");
+            globalManager.getMsg("");
             Object.material = pass;
-
+            guard1.cancelStareAt();
+            guard2.cancelStareAt();
         }
     }
 }

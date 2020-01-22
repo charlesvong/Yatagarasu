@@ -24,7 +24,7 @@ public class gatePass : MonoBehaviour
             player.WarpToPosition(outPosition.position);
         }
         else {
-            globalManager.getMsg("Only guards can go through!");
+            globalManager.getMsg("Someone is guarding the door!\n Only guards can go through!");
         }
     }
 }

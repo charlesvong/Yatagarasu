@@ -23,6 +23,15 @@ public class uniformCollect : MonoBehaviour
         if (other.name==player1.name) {
             globalManager.getMsg("Uniform changed");
             globalManager.disguised();
+
+
+            GameObject child1 = player1.transform.GetChild(0).gameObject;
+            GameObject child2 = player1.transform.GetChild(1).transform.GetChild(0).gameObject;
+            child2.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().enabled = true;
+            child2.GetComponent<Animator>().SetBool("uniformGet", true);
+
+            Destroy(child1);
+
             Destroy(uniform);
         }
     }

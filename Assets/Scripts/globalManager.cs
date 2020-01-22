@@ -15,13 +15,24 @@ public class globalManager : MonoBehaviour
     void Start()
     {
         key = 0;
+        passed = false;
+        disguise = false;
+        text = "Get the key!!";
     }
 
     // Update is called once per frame
     void Update()
     {
          logText.text = text;
-        
+
+        if (Input.GetKey("space")) {
+            Application.LoadLevel(Application.loadedLevel);
+        }
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
+        }
+
     }
 
     public static bool haveKey() {
@@ -44,7 +55,7 @@ public class globalManager : MonoBehaviour
     }
 
     public static void opened() {
-        text = "Treasure aquired";
+        text = "Treasure looted";
     }
 
     public static void getMsg(string Msg)
