@@ -30,7 +30,7 @@ public class interactableCube : Interactable
 
     }
 
-    override public int getActionCode() {
+    override public int getActionCode(int player_id, GameObject player_obj) {
         if (hitCount >= 1) {
             return ACTION_HIT;
         }

@@ -7,10 +7,13 @@ public class interactiveArea : MonoBehaviour
     private Interactable interactObj = null;
     private int actionCode = -1;
     private bool interacted = false;
+    private GameObject player;
+    private instructionManager hint;
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = this.transform.parent.gameObject;
+        hint = player.GetComponentsInChildren<instructionManager>()[0];
     }
 
     // Update is called once per frame
@@ -21,14 +24,19 @@ public class interactiveArea : MonoBehaviour
             interacted = true;
         }
 
+        if (actionCode != -1 && interactObj == null) {
+            actionCode = -1;
+            hint.hide();
+        }
+
     }
 
     void OnTriggerEnter(Collider other) {
         Interactable temp = other.gameObject.GetComponent<Interactable>();
         if (temp) {
             interactObj = temp.getInteractObject();
-            actionCode = temp.getActionCode();
-            Debug.Log(temp.getInstructions()); 
+            actionCode = temp.getActionCode(2, player);
+            hint.changeAndUpdateHint(temp.getInstructions()); 
         }
     }
 
@@ -37,8 +45,8 @@ public class interactiveArea : MonoBehaviour
         Interactable temp = other.gameObject.GetComponent<Interactable>();
         if (temp && temp == interactObj && interacted)
         {
-            actionCode = temp.getActionCode();
-            Debug.Log(temp.getInstructions());
+            actionCode = temp.getActionCode(2, player);
+            hint.changeAndUpdateHint(temp.getInstructions());
             interacted = false;
         }
     }
@@ -50,7 +58,7 @@ public class interactiveArea : MonoBehaviour
         {
             interactObj = null;
             actionCode = -1;
-            Debug.Log("left");
+            hint.hide();
         }
     }
 }
