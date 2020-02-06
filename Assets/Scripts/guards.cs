@@ -40,6 +40,9 @@ public class guards : MonoBehaviour
     public void knock() {
         status = 2;
         this.GetComponent<AI>().Stand();
+        Transform model = this.transform.Find("guardModel");
+        model.Rotate(0.0f, 0.0f, 90.0f, Space.Self);
+        model.Translate(0f, 0.2f, 0f);
         Debug.Log("I am down");
     }
 
@@ -52,6 +55,7 @@ public class guards : MonoBehaviour
     {
         Debug.Log("Uniform gone");
         uniform = false;
+        uniformChangeTarget.GetComponent<rookOps>().changeToGuard();
     }
 
     public void steal()
