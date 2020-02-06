@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Rewired;
 
 public class playerMovement : MonoBehaviour
 {
@@ -9,20 +10,28 @@ public class playerMovement : MonoBehaviour
     public float gravityFactor;
     public Vector3 gravity;
     private CharacterController controller;
-    public string forward;
+    Vector3 forward, right;
     public string backward;
     public string left;
-    public string right;
     private Vector3 warpPosition = Vector3.zero;
     public GameObject finalplayer;
+
+    public int playerID;
+    private Player player;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        player = ReInput.players.GetPlayer(playerID);
     }
 
     void Update()
     {
+        forward = Camera.main.transform.forward;
+        forward.y = 0;
+        forward = Vector3.Normalize(forward);
+        right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;
+
         Vector3 move = Vector3.zero;
         //if (Input.GetKey("space") && controller.isGrounded)
         //{
@@ -40,29 +49,17 @@ public class playerMovement : MonoBehaviour
         {
             gravity = Vector3.zero;
         }
+        float moveHorizontal = player.GetAxis("Move Horizontal");
+        float moveVertical = player.GetAxis("Move Vertical");
 
-        if (Input.GetKey(forward))
-        {
-            move += new Vector3(-playerSpeed * Time.deltaTime, 0, playerSpeed * Time.deltaTime);
-            transform.forward = move;
-        }
-        if (Input.GetKey(left))
-        {
-            move += new Vector3(-playerSpeed * Time.deltaTime, 0, -playerSpeed * Time.deltaTime);
-            transform.forward = move;
-        }
-        if (Input.GetKey(right))
-        {
-            move += new Vector3(playerSpeed * Time.deltaTime, 0, playerSpeed * Time.deltaTime);
-            transform.forward = move;
-        }
-        if (Input.GetKey(backward))
-        {
-            move += new Vector3(playerSpeed * Time.deltaTime, 0, -playerSpeed * Time.deltaTime);
-            transform.forward = move;
-        }
+        Vector3 rightMovement = right * playerSpeed * Time.deltaTime * player.GetAxis("Move Horizontal");
+        Vector3 upMovement = forward * playerSpeed * Time.deltaTime * player.GetAxis("Move Vertical");
 
-        controller.Move(move);
+        Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
+        transform.forward = heading;
+
+        transform.position += rightMovement;
+        transform.position += upMovement;
 
         if (warpPosition != Vector3.zero)
         {
