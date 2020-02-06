@@ -13,13 +13,13 @@ public class playerMovement : MonoBehaviour
     private Vector3 warpPosition = Vector3.zero;
     public GameObject finalplayer;
 
-    public int playerID;
+    public int controllerID;
     private Player player;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        player = ReInput.players.GetPlayer(playerID);
+        player = ReInput.players.GetPlayer(controllerID);
     }
 
     void Update()
@@ -65,7 +65,7 @@ public class playerMovement : MonoBehaviour
             warpPosition = Vector3.zero;
         }
 
-        if (Vector3.Distance(move, Vector3.zero) > 0.2)
+        if (Vector3.Distance(rightMovement + upMovement, Vector3.zero) > 0)
         {
             this.transform.Find("model").GetComponent<Animator>().SetBool("walk", true);
         }
@@ -90,6 +90,10 @@ public class playerMovement : MonoBehaviour
                 globalManager.keyPassed();
             }
         }
+    }
+
+    public Player getController() {
+        return player;
     }
 
 }

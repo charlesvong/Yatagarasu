@@ -31,7 +31,7 @@ public class interactableGuard : Interactable
         {
             if (guard.getStatus() == 0)
             {
-                return "press e to attract";
+                return "press B to attract";
             }
             else if (guard.getStatus() == 1)
             {
@@ -39,7 +39,7 @@ public class interactableGuard : Interactable
             }
             else if (guard.getStatus() == 2 && guard.hasList())
             {
-                return "press e to loot guest list";
+                return "press B to loot guest list";
             }
         }
         else if (player_id == 2)
@@ -50,11 +50,11 @@ public class interactableGuard : Interactable
             }
             else if (guard.getStatus() == 1)
             {
-                return "press e to knock down";
+                return "press B to knock down";
             }
             else if (guard.getStatus() == 2 && guard.hasUniform())
             {
-                return "press e to loot uniform";
+                return "press B to loot uniform";
             }
         }
         return "";

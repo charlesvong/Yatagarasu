@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Rewired;
 
 public class interactiveArea : MonoBehaviour
 {
@@ -10,17 +11,19 @@ public class interactiveArea : MonoBehaviour
     private GameObject player;
     private instructionManager hint;
     public int player_id;
+    private playerMovement controller;
     // Start is called before the first frame update
     void Start()
     {
         player = this.transform.parent.gameObject;
         hint = player.GetComponentsInChildren<instructionManager>()[0];
+        controller = player.GetComponent<playerMovement>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("e") && interactObj != null) {
+        if (controller.getController().GetButtonDown("Interact") && interactObj != null) {
             interactObj.interact(actionCode);
             interacted = true;
         }
