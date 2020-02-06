@@ -1261,7 +1261,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 67fcdeb3f145f9a42956478f705f5221, type: 2}
+  - {fileID: 2100000, guid: 15427c29f71654ba4ab8948155c2df68, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2307,7 +2307,7 @@ MonoBehaviour:
   gravityFactor: 0.2
   gravity: {x: 0, y: 0, z: 0}
   finalplayer: {fileID: 1444089676}
-  controllerID: 0
+  controllerID: 1
 --- !u!143 &1444089678
 CharacterController:
   m_ObjectHideFlags: 0
