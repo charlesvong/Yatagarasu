@@ -16,7 +16,7 @@ abstract public class Interactable : MonoBehaviour
         
     }
 
-    abstract public string getInstructions();
+    abstract public string getInstructions(int player_id);
 
     abstract public int getActionCode(int player_id, GameObject player_obj);
 

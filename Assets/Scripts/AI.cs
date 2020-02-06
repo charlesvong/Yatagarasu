@@ -43,9 +43,11 @@ public class AI : MonoBehaviour
         if (mode == 0)
         {
             agent.Stop();
+            this.transform.Find("guardModel").GetComponent<Animator>().SetBool("walking", false);
         }
         else {
             agent.Resume();
+            this.transform.Find("guardModel").GetComponent<Animator>().SetBool("walking", true);
 
             if (mode == 1)
             {
@@ -123,6 +125,10 @@ public class AI : MonoBehaviour
         if (Vector3.Distance(target.position, this.transform.position) > breakDis)
         {
             disTarget();
+        }
+        else if (Vector3.Distance(target.position, this.transform.position) < 1.5) {
+            this.transform.Find("guardModel").GetComponent<Animator>().SetBool("walking", false);
+            agent.Stop();
         }
         else
         {

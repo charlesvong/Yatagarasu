@@ -24,11 +24,6 @@ public class playerMovement : MonoBehaviour
     void Update()
     {
         Vector3 move = Vector3.zero;
-        //if (Input.GetKey("space") && controller.isGrounded)
-        //{
-        //    gravity -= Physics.gravity * gravityFactor * jumpFactor;
-        //    move += gravity;
-        //}
 
         if (controller.isGrounded == false)
         {
@@ -68,6 +63,14 @@ public class playerMovement : MonoBehaviour
         {
             transform.position = warpPosition;
             warpPosition = Vector3.zero;
+        }
+
+        if (Vector3.Distance(move, Vector3.zero) > 0.2)
+        {
+            this.transform.Find("model").GetComponent<Animator>().SetBool("walk", true);
+        }
+        else {
+            this.transform.Find("model").GetComponent<Animator>().SetBool("walk", false);
         }
 
 

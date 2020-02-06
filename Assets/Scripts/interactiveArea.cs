@@ -9,6 +9,7 @@ public class interactiveArea : MonoBehaviour
     private bool interacted = false;
     private GameObject player;
     private instructionManager hint;
+    public int player_id;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,8 +36,8 @@ public class interactiveArea : MonoBehaviour
         Interactable temp = other.gameObject.GetComponent<Interactable>();
         if (temp) {
             interactObj = temp.getInteractObject();
-            actionCode = temp.getActionCode(2, player);
-            hint.changeAndUpdateHint(temp.getInstructions()); 
+            actionCode = temp.getActionCode(player_id, player);
+            hint.changeAndUpdateHint(temp.getInstructions(player_id)); 
         }
     }
 
@@ -45,8 +46,8 @@ public class interactiveArea : MonoBehaviour
         Interactable temp = other.gameObject.GetComponent<Interactable>();
         if (temp && temp == interactObj && interacted)
         {
-            actionCode = temp.getActionCode(2, player);
-            hint.changeAndUpdateHint(temp.getInstructions());
+            actionCode = temp.getActionCode(player_id, player);
+            hint.changeAndUpdateHint(temp.getInstructions(player_id));
             interacted = false;
         }
     }

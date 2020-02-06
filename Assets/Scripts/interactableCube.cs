@@ -19,7 +19,7 @@ public class interactableCube : Interactable
         
     }
 
-    override public string getInstructions() {
+    override public string getInstructions(int player_id) {
         if (hitCount >= 1)
         {
             return "press e to hit";
