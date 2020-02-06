@@ -47,5 +47,14 @@ public class TestManager : MonoBehaviour
             npc.setDefaultMode(0);
         }
 
+        if (Input.GetKey("space"))
+        {
+            Application.LoadLevel(Application.loadedLevel);
+        }
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
+        }
+
     }
 }

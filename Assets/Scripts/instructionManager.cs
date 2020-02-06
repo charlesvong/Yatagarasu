@@ -8,11 +8,12 @@ public class instructionManager : MonoBehaviour
 
     public Text hint;
     public string text;
+    public Camera Dis_camera;
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 hintPos = Camera.main.WorldToScreenPoint(this.transform.position);
+        Vector3 hintPos = Dis_camera.WorldToScreenPoint(this.transform.position);
         hint.transform.position = hintPos;
     }
 

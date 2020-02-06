@@ -48,8 +48,11 @@ public class playerMovement : MonoBehaviour
         Vector3 rightMovement = right * playerSpeed * Time.deltaTime * player.GetAxis("Move Horizontal");
         Vector3 upMovement = forward * playerSpeed * Time.deltaTime * player.GetAxis("Move Vertical");
 
-        Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
-        transform.forward = heading;
+        if (moveHorizontal + moveVertical != 0) {
+            Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
+            transform.forward = heading;
+        }
+
 
         // transform.position += rightMovement;
         // transform.position += upMovement;
@@ -65,7 +68,7 @@ public class playerMovement : MonoBehaviour
             warpPosition = Vector3.zero;
         }
 
-        if (Vector3.Distance(rightMovement + upMovement, Vector3.zero) > 0)
+        if ((moveHorizontal * moveHorizontal + moveVertical * moveVertical > 0))
         {
             this.transform.Find("model").GetComponent<Animator>().SetBool("walk", true);
         }
