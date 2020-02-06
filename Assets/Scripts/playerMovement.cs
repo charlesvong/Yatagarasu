@@ -6,13 +6,10 @@ using Rewired;
 public class playerMovement : MonoBehaviour
 {
     public float playerSpeed;
-    public float jumpFactor;
     public float gravityFactor;
     public Vector3 gravity;
     private CharacterController controller;
     Vector3 forward, right;
-    public string backward;
-    public string left;
     private Vector3 warpPosition = Vector3.zero;
     public GameObject finalplayer;
 
@@ -49,6 +46,7 @@ public class playerMovement : MonoBehaviour
         {
             gravity = Vector3.zero;
         }
+
         float moveHorizontal = player.GetAxis("Move Horizontal");
         float moveVertical = player.GetAxis("Move Vertical");
 
@@ -58,8 +56,13 @@ public class playerMovement : MonoBehaviour
         Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
         transform.forward = heading;
 
-        transform.position += rightMovement;
-        transform.position += upMovement;
+        // transform.position += rightMovement;
+        // transform.position += upMovement;
+        // transform.position += move;
+
+        controller.Move(rightMovement);
+        controller.Move(upMovement);
+        controller.Move(move);
 
         if (warpPosition != Vector3.zero)
         {
