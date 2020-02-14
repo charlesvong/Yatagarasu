@@ -11,7 +11,6 @@ public class playerMovement2 : MonoBehaviour
     private CharacterController controller;
     Vector3 forward, right;
     private Vector3 warpPosition = Vector3.zero;
-    public GameObject finalplayer;
     public Camera camera;
 
     public int controllerID;
@@ -83,17 +82,6 @@ public class playerMovement2 : MonoBehaviour
     public void WarpToPosition(Vector3 newPosition)
     {
         warpPosition = newPosition;
-    }
-
-    private void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        if (hit.collider.name == finalplayer.name)
-        {
-            if (globalManager.haveKey())
-            {
-                globalManager.keyPassed();
-            }
-        }
     }
 
     public Player getController() {
