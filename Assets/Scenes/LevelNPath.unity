@@ -1977,7 +1977,6 @@ GameObject:
   - component: {fileID: 987043668}
   - component: {fileID: 987043667}
   - component: {fileID: 987043666}
-  - component: {fileID: 987043665}
   - component: {fileID: 987043664}
   - component: {fileID: 987043671}
   m_Layer: 0
@@ -2001,23 +2000,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uniform: {fileID: 2800000, guid: 4897684de39244722a3d73925e687645, type: 3}
   model: {fileID: 107528636}
---- !u!114 &987043665
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 987043663}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5f8cfb496a884979969e5f5402670ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerSpeed: 10
-  gravityFactor: 0.2
-  gravity: {x: 0, y: 0, z: 0}
-  finalplayer: {fileID: 987043663}
-  controllerID: 0
 --- !u!143 &987043666
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2129,7 +2111,6 @@ MonoBehaviour:
   playerSpeed: 10
   gravityFactor: 0.2
   gravity: {x: 0, y: 0, z: 0}
-  finalplayer: {fileID: 987043663}
   camera: {fileID: 361658051}
   controllerID: 0
 --- !u!1 &994338668
@@ -2920,14 +2901,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1444089676}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5f8cfb496a884979969e5f5402670ec, type: 3}
+  m_Script: {fileID: 11500000, guid: ce56ba92957b74247a8044b2e34600bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 10
   gravityFactor: 0.2
   gravity: {x: 0, y: 0, z: 0}
-  finalplayer: {fileID: 1444089676}
-  controllerID: 0
+  camera: {fileID: 185126120}
+  controllerID: 1
 --- !u!143 &1444089678
 CharacterController:
   m_ObjectHideFlags: 0
