@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
 
-public class playerMovement : MonoBehaviour
+public class playerMovement2 : MonoBehaviour
 {
     public float playerSpeed;
     public float gravityFactor;
@@ -12,6 +12,7 @@ public class playerMovement : MonoBehaviour
     Vector3 forward, right;
     private Vector3 warpPosition = Vector3.zero;
     public GameObject finalplayer;
+    public Camera camera;
 
     public int controllerID;
     private Player player;
@@ -24,7 +25,7 @@ public class playerMovement : MonoBehaviour
 
     void Update()
     {
-        forward = Camera.main.transform.forward;
+        forward = camera.transform.forward;
         forward.y = 0;
         forward = Vector3.Normalize(forward);
         right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;
