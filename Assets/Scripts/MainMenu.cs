@@ -8,13 +8,14 @@ using Rewired;
 public class MainMenu : MonoBehaviour
 {
     public Button PlayButton;
-
-    public void ReadyToPlay()
-    {
-        PlayButton.interactable = true;
-    }
+    public Animator animator;
 
     public void PlayGame()
+    {
+        animator.SetTrigger("FadeOut");
+    }
+
+    public void FadeComplete()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
