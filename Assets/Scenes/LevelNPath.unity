@@ -1182,11 +1182,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 361658048}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58a15b51d57cf4ee3831f1c3a91805e4, type: 3}
+  m_Script: {fileID: 11500000, guid: 50dd7405d5aef498e821b70e52ab8765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 987043671}
-  offset: {x: -3, y: 2, z: -3}
+  offset: {x: 2, y: 2, z: -2}
 --- !u!81 &361658050
 AudioListener:
   m_ObjectHideFlags: 0
