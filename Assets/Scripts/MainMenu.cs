@@ -2,10 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using Rewired;
 
 public class MainMenu : MonoBehaviour
 {
+    public Button PlayButton;
+
+    public void ReadyToPlay()
+    {
+        PlayButton.interactable = true;
+    }
 
     public void PlayGame()
     {
