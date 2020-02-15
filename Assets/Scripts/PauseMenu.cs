@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Rewired;
 
 public class PauseMenu : MonoBehaviour
@@ -9,8 +10,6 @@ public class PauseMenu : MonoBehaviour
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
     private playerMovement controller;
-
-    private CharacterController temp;
     void start()
     {
         
@@ -19,8 +18,6 @@ public class PauseMenu : MonoBehaviour
     void Update()
     {
         controller = GetComponent<playerMovement>();
-        Debug.Log(controller);
-        Debug.Log(temp);
         if(controller.getController().GetButtonDown("Pause"))
         {
             if(GameIsPaused)
@@ -30,21 +27,32 @@ public class PauseMenu : MonoBehaviour
             else
             {
                 Pause();
+                controller.getController().controllers.maps.LoadMap(ControllerType.Joystick, 0, "PauseMenu", "default", true);
             }
         }
     }
 
-    void Resume()
+    public void Resume()
     {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
     }
 
-    void Pause()
+    public void Pause()
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0;
         GameIsPaused = true;
+    }
+
+    public void Retry()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void ReturnToTitleScreen()
+    {
+        SceneManager.LoadScene(0);
     }
 }
