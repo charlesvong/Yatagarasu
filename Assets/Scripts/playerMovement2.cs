@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
 
-public class playerMovement : MonoBehaviour
+public class playerMovement2 : MonoBehaviour
 {
     public float playerSpeed;
     public float gravityFactor;
@@ -11,7 +11,7 @@ public class playerMovement : MonoBehaviour
     private CharacterController controller;
     Vector3 forward, right;
     private Vector3 warpPosition = Vector3.zero;
-    public GameObject finalplayer;
+    public Camera camera;
 
     public int controllerID;
     private Player player;
@@ -24,7 +24,7 @@ public class playerMovement : MonoBehaviour
 
     void Update()
     {
-        forward = Camera.main.transform.forward;
+        forward = camera.transform.forward;
         forward.y = 0;
         forward = Vector3.Normalize(forward);
         right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;
@@ -48,7 +48,7 @@ public class playerMovement : MonoBehaviour
         Vector3 rightMovement = right * playerSpeed * Time.deltaTime * player.GetAxis("Move Horizontal");
         Vector3 upMovement = forward * playerSpeed * Time.deltaTime * player.GetAxis("Move Vertical");
 
-        if (moveHorizontal + moveVertical != 0) {
+        if (moveHorizontal!= 0 || moveVertical != 0) {
             Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
             transform.forward = heading;
         }
@@ -82,17 +82,6 @@ public class playerMovement : MonoBehaviour
     public void WarpToPosition(Vector3 newPosition)
     {
         warpPosition = newPosition;
-    }
-
-    private void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        if (hit.collider.name == finalplayer.name)
-        {
-            if (globalManager.haveKey())
-            {
-                globalManager.keyPassed();
-            }
-        }
     }
 
     public Player getController() {
