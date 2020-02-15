@@ -13,11 +13,12 @@ public class PauseMenu : MonoBehaviour
     private CharacterController temp;
     void start()
     {
-        controller = GetComponent<playerMovement>();
+        
     }
     // Update is called once per frame
     void Update()
     {
+        controller = GetComponent<playerMovement>();
         Debug.Log(controller);
         Debug.Log(temp);
         if(controller.getController().GetButtonDown("Pause"))
