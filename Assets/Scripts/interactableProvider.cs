@@ -6,8 +6,8 @@ public class interactableProvider : Interactable
 {
 
     private int ACTION_PROVIDE = 1;
+    private int ACTION_END_TALK = 2;
     private int ACTION_NOTHING = 0;
-    // Start is called before the first frame update
 
     private infoProvider provider;
 
@@ -24,9 +24,13 @@ public class interactableProvider : Interactable
 
     override public string getInstructions(int player_id)
     {
-        if (player_id == provider.getRestrict())
+        if (player_id == provider.getRestrict() && provider.isProviding())
         {
-            return "Get information";
+            return "End talking";
+        }
+        else if (player_id == provider.getRestrict())
+        {
+            return "Get Info";
         }
         else {
             return "";
@@ -35,9 +39,14 @@ public class interactableProvider : Interactable
 
     override public int getActionCode(int player_id, GameObject player_obj)
     {
-        if (player_id == provider.getRestrict())
+        if (player_id == provider.getRestrict() && provider.isProviding())
         {
-            provider.setCaller(player_obj);
+            return ACTION_END_TALK;
+        }
+
+        else if (player_id == provider.getRestrict())
+        {
+            provider.setCaller(player_obj, player_id);
             return ACTION_PROVIDE;
         }
         else
@@ -51,6 +60,10 @@ public class interactableProvider : Interactable
         if (actionCode == ACTION_PROVIDE)
         {
             provider.provideInfo();
+        }
+        else if (actionCode == ACTION_END_TALK)
+        {
+            provider.endProviding();
         }
     }
 }
