@@ -16,6 +16,8 @@ public class playerMovement2 : MonoBehaviour
     public int controllerID;
     private Player player;
 
+    private bool ableMove = true;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -48,35 +50,40 @@ public class playerMovement2 : MonoBehaviour
         Vector3 rightMovement = right * playerSpeed * Time.deltaTime * player.GetAxis("Move Horizontal");
         Vector3 upMovement = forward * playerSpeed * Time.deltaTime * player.GetAxis("Move Vertical");
 
-        if (moveHorizontal!= 0 || moveVertical != 0) {
-            Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
-            transform.forward = heading;
-        }
 
 
         // transform.position += rightMovement;
         // transform.position += upMovement;
         // transform.position += move;
 
-        controller.Move(rightMovement);
-        controller.Move(upMovement);
-        controller.Move(move);
+        if (ableMove) {
 
-        if (warpPosition != Vector3.zero)
-        {
-            transform.position = warpPosition;
-            warpPosition = Vector3.zero;
+            if (moveHorizontal != 0 || moveVertical != 0)
+            {
+                Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
+                transform.forward = heading;
+            }
+
+
+            controller.Move(rightMovement);
+            controller.Move(upMovement);
+            controller.Move(move);
+
+            if (warpPosition != Vector3.zero)
+            {
+                transform.position = warpPosition;
+                warpPosition = Vector3.zero;
+            }
+
+            if ((moveHorizontal * moveHorizontal + moveVertical * moveVertical > 0))
+            {
+                this.transform.Find("model").GetComponent<Animator>().SetBool("walk", true);
+            }
+            else
+            {
+                this.transform.Find("model").GetComponent<Animator>().SetBool("walk", false);
+            }
         }
-
-        if ((moveHorizontal * moveHorizontal + moveVertical * moveVertical > 0))
-        {
-            this.transform.Find("model").GetComponent<Animator>().SetBool("walk", true);
-        }
-        else {
-            this.transform.Find("model").GetComponent<Animator>().SetBool("walk", false);
-        }
-
-
 
     }
     public void WarpToPosition(Vector3 newPosition)
@@ -86,6 +93,14 @@ public class playerMovement2 : MonoBehaviour
 
     public Player getController() {
         return player;
+    }
+
+    public void disableMove() {
+        ableMove = false;
+    }
+
+    public void enableMove() {
+        ableMove = true;
     }
 
 }
