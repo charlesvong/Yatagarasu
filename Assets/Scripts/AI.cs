@@ -66,7 +66,7 @@ public class AI : MonoBehaviour
         modeChange = false;
     }
 
-    private void BackToDefault()
+    public void BackToDefault()
     {
         if (defaultMode == 0)
         {
