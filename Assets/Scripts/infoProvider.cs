@@ -34,7 +34,7 @@ public class infoProvider : MonoBehaviour
         else if (providing) {
             timer = 0;
             providing = false;
-            endPrividing();
+            endProviding();
         }
         
     }
@@ -50,7 +50,7 @@ public class infoProvider : MonoBehaviour
         Debug.Log("i will give u info");
     }
 
-    public void endPrividing() {
+    public void endProviding() {
         this.GetComponent<AI>().BackToDefault();
     }
 

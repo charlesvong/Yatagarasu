@@ -26,7 +26,7 @@ public class interactableProvider : Interactable
     {
         if (player_id == provider.getRestrict())
         {
-            return "Press B to get information";
+            return "Get information";
         }
         else {
             return "";
