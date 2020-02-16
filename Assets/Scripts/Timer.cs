@@ -38,7 +38,7 @@ public class Timer : MonoBehaviour
             for (int i = 0; i < ReInput.players.playerCount; i++)
             {
                 Player player = ReInput.players.Players[i];
-                player.controllers.maps.LoadMap(ControllerType.Joystick, player.id, "PauseMenu", "default", true);
+                player.controllers.maps.LoadMap(ControllerType.Joystick, player.id, "GameOver", "default", true);
                 player.controllers.maps.LoadMap(ControllerType.Joystick, player.id, "default", "default", false);
             }
 
