@@ -10,12 +10,12 @@ public class PauseMenu : MonoBehaviour
 
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
-    private playerMovement controller;
+    private playerMovement2 controller;
 
     // Update is called once per frame
     void Update()
     {
-        controller = GetComponent<playerMovement>();
+        controller = GetComponent<playerMovement2>();
         if(controller.getController().GetButtonDown("Pause"))
         {
             if(GameIsPaused)
@@ -31,8 +31,8 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
-        controller.getController().controllers.maps.LoadMap(ControllerType.Joystick, 0, "PauseMenu", "default", false);
-        controller.getController().controllers.maps.LoadMap(ControllerType.Joystick, 0, "default", "default", true);
+        controller.getController().controllers.maps.LoadMap(ControllerType.Joystick, controller.controllerID, "PauseMenu", "default", false);
+        controller.getController().controllers.maps.LoadMap(ControllerType.Joystick, controller.controllerID, "default", "default", true);
         pauseMenuUI.SetActive(false);
 
         Time.timeScale = 1f;
@@ -41,8 +41,8 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
-        controller.getController().controllers.maps.LoadMap(ControllerType.Joystick, 0, "PauseMenu", "default", true);
-        controller.getController().controllers.maps.LoadMap(ControllerType.Joystick, 0, "default", "default", false);
+        controller.getController().controllers.maps.LoadMap(ControllerType.Joystick, controller.controllerID, "PauseMenu", "default", true);
+        controller.getController().controllers.maps.LoadMap(ControllerType.Joystick, controller.controllerID, "default", "default", false);
         pauseMenuUI.SetActive(true);
 
         Time.timeScale = 0;
@@ -53,12 +53,13 @@ public class PauseMenu : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Resume();
-        controller.getController().controllers.maps.LoadMap(ControllerType.Joystick, 0, "PauseMenu", "default", false);
-        controller.getController().controllers.maps.LoadMap(ControllerType.Joystick, 0, "default", "default", true);
+        controller.getController().controllers.maps.LoadMap(ControllerType.Joystick, controller.controllerID, "PauseMenu", "default", false);
+        controller.getController().controllers.maps.LoadMap(ControllerType.Joystick, controller.controllerID, "default", "default", true);
     }
 
     public void ReturnToTitleScreen()
     {
-        SceneManager.LoadScene(0);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }
