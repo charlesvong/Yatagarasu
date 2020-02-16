@@ -2,15 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Rewired;
 
 public class Timer : MonoBehaviour
 {
     [SerializeField] private Text uiText;
     [SerializeField] private float maxTimer;
+    [SerializeField] private GameObject GameOverScreen;
 
     private float timer;
-    private bool canCount = true;
-    private bool doOnce = false;
+    private bool selected= false;
+
+    private Button firstSelected;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +24,7 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(timer >= 0.0f && canCount)
+        if(timer > 0.5f)
         {
             timer -= Time.deltaTime;
             int minutes = Mathf.FloorToInt(timer / 60F);
@@ -29,10 +33,23 @@ public class Timer : MonoBehaviour
             uiText.text = readableTime;
         }
 
-        else if(timer <= 0.0f && !doOnce)
+        else if(timer <= 0.5f)
         {
-            canCount = false;
-            doOnce = true;
+            for (int i = 0; i < ReInput.players.playerCount; i++)
+            {
+                Player player = ReInput.players.Players[i];
+                player.controllers.maps.LoadMap(ControllerType.Joystick, player.id, "GameOver", "default", true);
+                player.controllers.maps.LoadMap(ControllerType.Joystick, player.id, "default", "default", false);
+            }
+
+            GameOverScreen.SetActive(true);
+
+            if(selected == false){
+                firstSelected = GameOverScreen.GetComponentsInChildren<Button>()[0];
+                firstSelected.Select();
+                selected = true;
+            }
+
             uiText.text = "0:00";
             timer = 0.0f;
         }
