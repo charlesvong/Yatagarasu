@@ -11,13 +11,13 @@ public class interactiveArea : MonoBehaviour
     private GameObject player;
     private instructionManager hint;
     public int player_id;
-    private playerMovement controller;
+    private playerMovement2 controller;
     // Start is called before the first frame update
     void Start()
     {
         player = this.transform.parent.gameObject;
         hint = player.GetComponentsInChildren<instructionManager>()[0];
-        controller = player.GetComponent<playerMovement>();
+        controller = player.GetComponent<playerMovement2>();
     }
 
     // Update is called once per frame
