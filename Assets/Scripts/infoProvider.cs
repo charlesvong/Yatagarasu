@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class infoProvider : MonoBehaviour
 {
@@ -14,11 +15,12 @@ public class infoProvider : MonoBehaviour
     public dialogManager dManager;
     public bool isTarget = false;
 
+    private VictoryScreen victoryComponent;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        victoryComponent = GetComponent<VictoryScreen>();
     }
 
     // Update is called once per frame
@@ -73,6 +75,7 @@ public class infoProvider : MonoBehaviour
         if (isTarget)
         {
             Debug.Log("accused, game success");
+            victoryComponent.Victory();
         }
         else {
             Debug.Log("wring target, game over");

@@ -12,6 +12,7 @@ public class interactiveArea : MonoBehaviour
     private instructionManager hint;
     public int player_id;
     private playerMovement2 controller;
+
     // Start is called before the first frame update
     void Start()
     {
