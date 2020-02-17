@@ -33,7 +33,7 @@ public class interactableProvider : Interactable
             return "Get Info \nAccuse";
         }
         else {
-            return "";
+            return "Accuse";
         }
     }
 
