@@ -11,7 +11,7 @@ public class Timer : MonoBehaviour
     [SerializeField] private GameObject GameOverScreen;
 
     private float timer;
-    private bool selected= false;
+    private bool selected = false;
 
     private Button firstSelected;
 
@@ -33,6 +33,7 @@ public class Timer : MonoBehaviour
             uiText.text = readableTime;
         }
 
+        // Displays Game Over screen when timer goes to 0
         else if(timer <= 0.5f)
         {
             for (int i = 0; i < ReInput.players.playerCount; i++)
