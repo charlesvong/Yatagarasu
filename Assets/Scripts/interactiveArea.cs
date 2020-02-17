@@ -28,6 +28,19 @@ public class interactiveArea : MonoBehaviour
             interacted = true;
         }
 
+        if (controller.getController().GetButtonDown("Accuse") && interactObj.GetComponent<infoProvider>() != null)
+        {
+            bool result = interactObj.GetComponent<infoProvider>().accuse();
+            if (!result) {
+                Debug.Log("u are caught");
+                actionCode = -1;
+                hint.hide();
+                player.gameObject.SetActive(false);
+            
+            }
+
+        }
+
         if (actionCode != -1 && interactObj == null) {
             actionCode = -1;
             hint.hide();

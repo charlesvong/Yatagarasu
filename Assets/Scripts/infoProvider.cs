@@ -12,6 +12,7 @@ public class infoProvider : MonoBehaviour
     private float timer;
     private int caller_id;
     public dialogManager dManager;
+    public bool isTarget = false;
 
 
     // Start is called before the first frame update
@@ -66,6 +67,17 @@ public class infoProvider : MonoBehaviour
 
     public bool isProviding() {
         return providing;
+    }
+
+    public bool accuse() {
+        if (isTarget)
+        {
+            Debug.Log("accused, game success");
+        }
+        else {
+            Debug.Log("wring target, game over");
+        }
+        return isTarget;
     }
 
 }

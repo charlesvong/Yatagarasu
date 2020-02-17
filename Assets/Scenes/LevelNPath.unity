@@ -995,6 +995,7 @@ MonoBehaviour:
   restrict_player_id: 3
   talkTime: 5
   dManager: {fileID: 1147095882}
+  isTarget: 0
 --- !u!1 &107528636 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4425609515867240179, guid: 306728bbc6e04422facff0b1b1e43c78,
@@ -1215,7 +1216,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -223, y: -541}
-  m_SizeDelta: {x: 500, y: 50}
+  m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &239369572
 MonoBehaviour:
@@ -1854,8 +1855,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 286716811}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.0400001, y: 3.25, z: 1.6}
-  m_LocalScale: {x: 1, y: 5.746, z: 1}
+  m_LocalPosition: {x: -2, y: 3.5, z: 2}
+  m_LocalScale: {x: 2, y: 6, z: 2}
   m_Children: []
   m_Father: {fileID: 987043670}
   m_RootOrder: 1
@@ -2274,8 +2275,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 425193193}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.0400001, y: 3.25, z: 1.6}
-  m_LocalScale: {x: 1, y: 5.746, z: 1}
+  m_LocalPosition: {x: -2, y: 3.5, z: 2}
+  m_LocalScale: {x: 2, y: 6, z: 2}
   m_Children: []
   m_Father: {fileID: 1444089682}
   m_RootOrder: 1
@@ -3180,7 +3181,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -223, y: -541}
-  m_SizeDelta: {x: 500, y: 50}
+  m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &579501795
 GameObject:
@@ -5014,6 +5015,7 @@ MonoBehaviour:
   restrict_player_id: 2
   talkTime: 5
   dManager: {fileID: 1147095882}
+  isTarget: 0
 --- !u!114 &926516600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6791,6 +6793,7 @@ MonoBehaviour:
   restrict_player_id: 1
   talkTime: 5
   dManager: {fileID: 1147095882}
+  isTarget: 0
 --- !u!114 &1316530675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7142,7 +7145,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -223, y: -541}
-  m_SizeDelta: {x: 500, y: 50}
+  m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1358694563
 MonoBehaviour:
@@ -7881,6 +7884,15 @@ MonoBehaviour:
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 0
+    - _id: 8
+      _name: Accuse
+      _type: 1
+      _descriptiveName: Accuse
+      _positiveDescriptiveName: 
+      _negativeDescriptiveName: 
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 0
     actionCategories:
     - _name: Default
       _descriptiveName: Default
@@ -7890,7 +7902,7 @@ MonoBehaviour:
     actionCategoryMap:
       list:
       - categoryId: 0
-        actionIds: 0000000001000000020000000300000004000000050000000600000007000000
+        actionIds: 000000000100000002000000030000000400000005000000060000000700000008000000
     inputBehaviors:
     - _id: 0
       _name: Default
@@ -8016,6 +8028,17 @@ MonoBehaviour:
         _modifierKey1: 0
         _modifierKey2: 0
         _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 8
+        _elementType: 1
+        _elementIdentifierId: 4
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
     - id: 1
       categoryId: 1
       layoutId: 0
@@ -8114,7 +8137,7 @@ MonoBehaviour:
     controllerMapLayoutManagerRuleSets: []
     controllerMapEnablerRuleSets: []
     playerIdCounter: 4
-    actionIdCounter: 8
+    actionIdCounter: 9
     actionCategoryIdCounter: 1
     inputBehaviorIdCounter: 1
     mapCategoryIdCounter: 3
@@ -10728,8 +10751,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2137781729}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.0400001, y: 3.25, z: 1.6}
-  m_LocalScale: {x: 1, y: 5.746, z: 1}
+  m_LocalPosition: {x: -2, y: 3.5, z: 2}
+  m_LocalScale: {x: 2, y: 6, z: 2}
   m_Children: []
   m_Father: {fileID: 1004693911}
   m_RootOrder: 1
