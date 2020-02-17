@@ -56,7 +56,8 @@ public class playerMovement2 : MonoBehaviour
         // transform.position += upMovement;
         // transform.position += move;
 
-        if (ableMove) {
+        if (ableMove)
+        {
 
             if (moveHorizontal != 0 || moveVertical != 0)
             {
@@ -83,6 +84,9 @@ public class playerMovement2 : MonoBehaviour
             {
                 this.transform.Find("model").GetComponent<Animator>().SetBool("walk", false);
             }
+        }
+        else {
+            this.transform.Find("model").GetComponent<Animator>().SetBool("walk", false);
         }
 
     }
