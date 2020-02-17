@@ -10,8 +10,10 @@ public class infoProvider : MonoBehaviour
     private bool providing = false;
     public float talkTime;
     private float timer;
+    private int caller_id;
+    public dialogManager dManager;
+    public bool isTarget = false;
 
-    // 0 for normal, 1 for attracted, 2 for unconscious
 
     // Start is called before the first frame update
     void Start()
@@ -32,8 +34,6 @@ public class infoProvider : MonoBehaviour
             timer -= Time.deltaTime;
         }
         else if (providing) {
-            timer = 0;
-            providing = false;
             endProviding();
         }
         
@@ -45,17 +45,39 @@ public class infoProvider : MonoBehaviour
 
     public void provideInfo() {
         this.GetComponent<AI>().Stand();
+        caller.GetComponent<playerMovement2>().disableMove();
         providing = true;
         timer = talkTime;
         Debug.Log("i will give u info");
+        dManager.getPresent(caller_id).Show();
     }
 
     public void endProviding() {
+        timer = 0;
+        providing = false;
         this.GetComponent<AI>().BackToDefault();
+        caller.GetComponent<playerMovement2>().enableMove();
+        dManager.getPresent(caller_id).Hide();
     }
 
-    public void setCaller(GameObject obj) {
+    public void setCaller(GameObject obj, int id) {
         this.caller = obj;
+        this.caller_id = id;
+    }
+
+    public bool isProviding() {
+        return providing;
+    }
+
+    public bool accuse() {
+        if (isTarget)
+        {
+            Debug.Log("accused, game success");
+        }
+        else {
+            Debug.Log("wring target, game over");
+        }
+        return isTarget;
     }
 
 }
