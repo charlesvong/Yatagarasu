@@ -9,9 +9,6 @@ public class dialogManager : MonoBehaviour
     public  dialogPresent rookPresent;
     public  dialogPresent ravenPresent;
 
-    public GameObject obj;
-    public Material mat;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -36,9 +33,5 @@ public class dialogManager : MonoBehaviour
         else {
             return ravenPresent;
         }
-    }
-
-    public (GameObject, Material) generateObj() {
-        return (obj, mat);
     }
 }
