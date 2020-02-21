@@ -14,6 +14,7 @@ public class infoProvider : MonoBehaviour
     private int caller_id;
     public dialogManager dManager;
     public bool isTarget = false;
+    public GameObject Hint;
 
     private VictoryScreen victoryComponent;
 
@@ -51,7 +52,7 @@ public class infoProvider : MonoBehaviour
         providing = true;
         timer = talkTime;
         Debug.Log("i will give u info");
-        dManager.getPresent(caller_id).Show();
+        dManager.getPresent(caller_id).Show(Hint);
     }
 
     public void endProviding() {

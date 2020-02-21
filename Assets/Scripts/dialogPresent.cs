@@ -19,10 +19,8 @@ public class dialogPresent : MonoBehaviour
 
     }
 
-    public void Show() {
-        (GameObject fab, Material mat) = dManager.generateObj();
+    public void Show(GameObject fab) {
         obj.setTarget(fab);
-        obj.setMaterial(mat);
         obj.initiateObj();
         this.gameObject.SetActive(true);
     }
