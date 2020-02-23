@@ -22,6 +22,7 @@ public class dialogPresent : MonoBehaviour
     public void Show(GameObject fab) {
         obj.setTarget(fab);
         obj.initiateObj();
+        obj.transform.Rotate(0.0f, 0.0f, 180.0f);
         this.gameObject.SetActive(true);
     }
 
