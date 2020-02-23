@@ -4885,7 +4885,7 @@ MonoBehaviour:
   talkTime: 5
   dManager: {fileID: 1147095882}
   isTarget: 0
-  Hint: {fileID: 0}
+  Hint: {fileID: -927199367670048503, guid: 60c68a175c363cd44a7e1be39fa1c678, type: 3}
 --- !u!114 &926516600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5238,7 +5238,7 @@ MonoBehaviour:
   gravityFactor: 0.2
   gravity: {x: 0, y: 0, z: 0}
   camera: {fileID: 1954040511}
-  controllerID: 2
+  controllerID: 1
 --- !u!143 &987043666
 CharacterController:
   m_ObjectHideFlags: 0
@@ -5547,7 +5547,7 @@ MonoBehaviour:
   gravityFactor: 0.5
   gravity: {x: 0, y: 0, z: 0}
   camera: {fileID: 766557953}
-  controllerID: 0
+  controllerID: 2
 --- !u!143 &1004693907
 CharacterController:
   m_ObjectHideFlags: 0
@@ -6232,7 +6232,7 @@ PrefabInstance:
     - target: {fileID: 4100712499695391376, guid: bd7563b07bc75a34c8825601f82c15b1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Resume
+      value: Retry
       objectReference: {fileID: 0}
     - target: {fileID: 4100712500293125721, guid: bd7563b07bc75a34c8825601f82c15b1,
         type: 3}
@@ -6692,7 +6692,7 @@ MonoBehaviour:
   talkTime: 5
   dManager: {fileID: 1147095882}
   isTarget: 0
-  Hint: {fileID: 0}
+  Hint: {fileID: -927199367670048503, guid: 60c68a175c363cd44a7e1be39fa1c678, type: 3}
 --- !u!114 &1316530675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7347,7 +7347,7 @@ MonoBehaviour:
   gravityFactor: 0.5
   gravity: {x: 0, y: 0, z: 0}
   camera: {fileID: 1874581740}
-  controllerID: 1
+  controllerID: 0
 --- !u!143 &1444089678
 CharacterController:
   m_ObjectHideFlags: 0
