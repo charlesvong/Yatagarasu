@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Fungus;
 
 public class infoProvider : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class infoProvider : MonoBehaviour
     public dialogManager dManager;
     public bool isTarget = false;
     public GameObject Hint;
+    public Flowchart flowchart;
 
     private VictoryScreen victoryComponent;
 
@@ -53,6 +55,7 @@ public class infoProvider : MonoBehaviour
         timer = talkTime;
         Debug.Log("i will give u info");
         dManager.getPresent(caller_id).Show(Hint);
+        flowchart.ExecuteBlock("Test");
     }
 
     public void endProviding() {

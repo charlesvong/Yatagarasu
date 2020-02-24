@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Rewired;
+using Fungus;
 
 public class Timer : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class Timer : MonoBehaviour
     private bool selected = false;
 
     private Button firstSelected;
+    public Flowchart flowchart;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +34,9 @@ public class Timer : MonoBehaviour
             string readableTime = string.Format("{0:0}:{1:00}", minutes, seconds);
             uiText.text = readableTime;
         }
-
+        // if(timer <= 270.0f){
+        //     flowchart.execute("Banter_1");
+        // }
         // Displays Game Over screen when timer goes to 0
         else if(timer <= 0.5f)
         {
