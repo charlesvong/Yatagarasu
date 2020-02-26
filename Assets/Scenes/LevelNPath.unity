@@ -760,7 +760,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   victoryScreen: {fileID: 1965227525}
   MainBGM: {fileID: 1259019422}
-  VictoryBGM: {fileID: 1253733383}
+  VictoryBGM: {fileID: 2097284620}
 --- !u!114 &94699727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5801,7 +5801,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   victoryScreen: {fileID: 302115702}
   MainBGM: {fileID: 1259019422}
-  VictoryBGM: {fileID: 1253733383}
+  VictoryBGM: {fileID: 2097284620}
 --- !u!114 &926516608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8289,7 +8289,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   victoryScreen: {fileID: 302115702}
   MainBGM: {fileID: 1259019422}
-  VictoryBGM: {fileID: 1253733383}
+  VictoryBGM: {fileID: 2097284620}
 --- !u!114 &1316530683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14433,11 +14433,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 013a582605f1eaf41b73ce45cd8bdbf9, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
