@@ -10,6 +10,8 @@ public class Timer : MonoBehaviour
     [SerializeField] private Text uiText;
     [SerializeField] private float maxTimer;
     [SerializeField] private GameObject GameOverScreen;
+    [SerializeField] private GameObject MainBGM;
+    [SerializeField] private GameObject GameOverBGM;
 
     private float timer;
     private bool selected = false;
@@ -20,11 +22,16 @@ public class Timer : MonoBehaviour
     private bool HurryUpReminder = false;
     private FungusDialogue dialogue;
 
+    private AudioSource MainTheme;
+    private AudioSource GameOverTheme;
+
     // Start is called before the first frame update
     void Start()
     {
         timer = maxTimer;
         dialogue = GetComponent<FungusDialogue>();
+        MainTheme = MainBGM.GetComponent<AudioSource>();
+        GameOverTheme = GameOverBGM.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -48,6 +55,8 @@ public class Timer : MonoBehaviour
         }
         if(timer <= 60f && !HurryUpReminder){
             dialogue.TimeAlmostUp();
+            // Also speed up music
+            MainTheme.pitch = 1.5f;
             HurryUpReminder = true;
         }
         // Displays Game Over screen when timer goes to 0
@@ -70,6 +79,13 @@ public class Timer : MonoBehaviour
 
             uiText.text = "0:00";
             timer = 0.0f;
+
+            // Stop main theme and start Game Over music
+            
+            if(MainTheme.isPlaying){
+                MainTheme.Stop();
+                GameOverTheme.Play();
+            }
         }
     }
 }

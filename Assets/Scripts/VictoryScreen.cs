@@ -7,6 +7,8 @@ using Rewired;
 public class VictoryScreen : MonoBehaviour
 {
     public GameObject victoryScreen;
+    public GameObject MainBGM;
+    public GameObject VictoryBGM;
     private Button firstSelected;
     private bool selected = false;
     // Start is called before the first frame update
@@ -20,9 +22,17 @@ public class VictoryScreen : MonoBehaviour
             player.controllers.maps.LoadMap(ControllerType.Joystick, player.id, "default", "default", false);
         }
 
-            victoryScreen.SetActive(true);
+        victoryScreen.SetActive(true);
 
-            firstSelected = victoryScreen.GetComponentsInChildren<Button>()[0];
-            firstSelected.Select();
+        firstSelected = victoryScreen.GetComponentsInChildren<Button>()[0];
+        firstSelected.Select();
+
+        // Stop main theme and start Game Over music
+        AudioSource MainTheme = MainBGM.GetComponent<AudioSource>();
+        AudioSource VictoryTheme = VictoryBGM.GetComponent<AudioSource>();
+        if(MainTheme.isPlaying){
+            MainTheme.Stop();
+            VictoryTheme.Play();
+        }
     }
 }
