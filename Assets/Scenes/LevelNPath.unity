@@ -9699,7 +9699,6 @@ GameObject:
   - component: {fileID: 1592880399}
   - component: {fileID: 1592880398}
   - component: {fileID: 1592880397}
-  - component: {fileID: 1592880396}
   - component: {fileID: 1592880395}
   - component: {fileID: 1592880443}
   - component: {fileID: 1592880442}
@@ -9745,6 +9744,7 @@ GameObject:
   - component: {fileID: 1592880402}
   - component: {fileID: 1592880401}
   - component: {fileID: 1592880400}
+  - component: {fileID: 1592880396}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -9783,7 +9783,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1592880396
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -9853,8 +9853,7 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 1592880397}
-  selectedCommands:
-  - {fileID: 1592880395}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -10177,7 +10176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 639
+    x: 640
     y: 152
     width: 136
     height: 40
@@ -10432,7 +10431,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 27
   indentLevel: 0
-  storyText: '{i}cough{/i}
+  storyText: '{i} cough {/i}
 
     {w=3}'
   description: 
@@ -12547,6 +12546,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1981894545}
   - component: {fileID: 1981894544}
+  - component: {fileID: 1981894546}
   m_Layer: 0
   m_Name: TimerController
   m_TagString: Untagged
@@ -12583,6 +12583,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1981894546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981894543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b36a893e2c4cb54cb1d3cacaff47ff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flowchart: {fileID: 1592880398}
 --- !u!1 &2017362474
 GameObject:
   m_ObjectHideFlags: 0
