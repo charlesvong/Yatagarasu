@@ -11,6 +11,8 @@ public class GameOverTracker : MonoBehaviour
     public GameObject Raven;
     [SerializeField] private GameObject GameOverScreen;
     [SerializeField] private Text uiText;
+    [SerializeField] private GameObject MainBGM;
+    [SerializeField] private GameObject GameOverBGM;
     private bool selected = false;
     private Button firstSelected;
 
@@ -42,6 +44,14 @@ public class GameOverTracker : MonoBehaviour
         }
 
         uiText.text = "0:00";
+
+        // Stop main theme and start Game Over music
+        AudioSource MainTheme = MainBGM.GetComponent<AudioSource>();
+        AudioSource GameOverTheme = GameOverBGM.GetComponent<AudioSource>();
+        if(MainTheme.isPlaying){
+            MainTheme.Stop();
+            GameOverTheme.Play();
+        }
 
         
     }
