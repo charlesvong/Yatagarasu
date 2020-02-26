@@ -15,6 +15,9 @@ public class infoProvider : MonoBehaviour
     public dialogManager dManager;
     public bool isTarget = false;
     public GameObject Hint;
+    public bool hasTanukiOrOni;
+    private FungusDialogue dialogue;
+    private bool dialogueTriggered = false;
 
     private VictoryScreen victoryComponent;
 
@@ -22,6 +25,7 @@ public class infoProvider : MonoBehaviour
     void Start()
     {
         victoryComponent = GetComponent<VictoryScreen>();
+        dialogue = GetComponent<FungusDialogue>();
     }
 
     // Update is called once per frame
@@ -51,7 +55,7 @@ public class infoProvider : MonoBehaviour
         caller.GetComponent<playerMovement2>().disableMove();
         providing = true;
         timer = talkTime;
-        Debug.Log("i will give u info");
+        Debug.Log("I will give you info");
         dManager.getPresent(caller_id).Show(Hint);
     }
 
@@ -61,6 +65,17 @@ public class infoProvider : MonoBehaviour
         this.GetComponent<AI>().BackToDefault();
         caller.GetComponent<playerMovement2>().enableMove();
         dManager.getPresent(caller_id).Hide();
+        Debug.Log(dialogue);
+        if(hasTanukiOrOni && !dialogueTriggered){
+            TriggerHintDialogue();
+            dialogueTriggered = true;
+        }
+        else{
+            int RandomNum = Random.Range(0, 100);
+            if(RandomNum < 30){
+                dialogue.OneLiner(caller_id);
+            }
+        }
     }
 
     public void setCaller(GameObject obj, int id) {
@@ -79,9 +94,15 @@ public class infoProvider : MonoBehaviour
             victoryComponent.Victory();
         }
         else {
-            Debug.Log("wring target, game over");
+            Debug.Log("wrong target, game over");
+            dialogue.CaughtDialogue(caller_id);
+
         }
         return isTarget;
+    }
+
+    public void TriggerHintDialogue(){
+        dialogue.hint();
     }
 
 }
