@@ -53,16 +53,16 @@ public class FungusDialogue : MonoBehaviour
 
     public void OneLiner(int callerID){
         int randomNum = Random.Range(OneLinerlist[0], OneLinerlist.Count + 1);
-        if(randomNum == callerID && callerID == 0){
-            randomNum++;
-        }
-        else if(randomNum == callerID && callerID == 1){
+        if(randomNum == callerID && callerID == 1){
             randomNum++;
         }
         else if(randomNum == callerID && callerID == 2){
+            randomNum++;
+        }
+        else if(randomNum == callerID && callerID == 3){
             randomNum--;
         }
-        string blockName = "OneLiner" + callerID.ToString();
+        string blockName = "OneLiner" + randomNum.ToString();
         var sayDialog = Fungus.SayDialog.GetSayDialog(); 
         if(sayDialog.isActiveAndEnabled){
             return;
