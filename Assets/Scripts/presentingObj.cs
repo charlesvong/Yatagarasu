@@ -5,7 +5,6 @@ using UnityEngine;
 public class presentingObj : MonoBehaviour
 {
     public float rotateSpeed;
-    public Material mat;
     private GameObject prefab;
     public GameObject target;
 
@@ -26,13 +25,11 @@ public class presentingObj : MonoBehaviour
 
     public void setMaterial(Material material)
     {
-        this.mat = material;
     }
 
     public void initiateObj() {
         prefab = Instantiate(target, this.transform.position, Quaternion.identity);
         prefab.transform.parent = this.transform;
-        prefab.GetComponent<Renderer>().material = mat;
         prefab.layer = 12;
     }
 
