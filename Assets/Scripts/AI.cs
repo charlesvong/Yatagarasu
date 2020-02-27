@@ -70,7 +70,7 @@ public class AI : MonoBehaviour
     {
         if (defaultMode == 0)
         {
-            Move(defaultTransform);
+            Stand();
         }
         else if (defaultMode == 1)
         {

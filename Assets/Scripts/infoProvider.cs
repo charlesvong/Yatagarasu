@@ -61,7 +61,6 @@ public class infoProvider : MonoBehaviour
         timer = talkTime;
         Debug.Log("I will give you info");
         dManager.getPresent(caller_id).Show(Hint);
-        Debug.Log("here");
         HintSFX.Play();
     }
 
@@ -71,7 +70,6 @@ public class infoProvider : MonoBehaviour
         this.GetComponent<AI>().BackToDefault();
         caller.GetComponent<playerMovement2>().enableMove();
         dManager.getPresent(caller_id).Hide();
-        Debug.Log(dialogue);
         if(hasTanukiOrOni && !dialogueTriggered){
             TriggerHintDialogue();
             dialogueTriggered = true;
