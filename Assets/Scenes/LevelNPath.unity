@@ -6802,9 +6802,9 @@ MonoBehaviour:
   restrict_player_id: 1
   talkTime: 5
   dManager: {fileID: 1147095882}
-  isTarget: 0
+  isTarget: 1
   Hint: {fileID: -927199367670048503, guid: 60c68a175c363cd44a7e1be39fa1c678, type: 3}
-  hasTanukiOrOni: 0
+  hasTanukiOrOni: 1
 --- !u!114 &451908266
 MonoBehaviour:
   m_ObjectHideFlags: 0
