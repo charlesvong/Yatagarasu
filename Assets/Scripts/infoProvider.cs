@@ -20,12 +20,16 @@ public class infoProvider : MonoBehaviour
     private bool dialogueTriggered = false;
 
     private VictoryScreen victoryComponent;
+    private AudioSource AccuseSFX;
+    private AudioSource HintSFX;
 
     // Start is called before the first frame update
     void Start()
     {
         victoryComponent = GetComponent<VictoryScreen>();
         dialogue = GetComponent<FungusDialogue>();
+        AccuseSFX = this.transform.Find("AccuseSFX").GetComponent<AudioSource>();
+        HintSFX = this.transform.Find("HintSFX").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -57,6 +61,7 @@ public class infoProvider : MonoBehaviour
         timer = talkTime;
         Debug.Log("I will give you info");
         dManager.getPresent(caller_id).Show(Hint);
+        HintSFX.Play();
     }
 
     public void endProviding() {
@@ -65,7 +70,6 @@ public class infoProvider : MonoBehaviour
         this.GetComponent<AI>().BackToDefault();
         caller.GetComponent<playerMovement2>().enableMove();
         dManager.getPresent(caller_id).Hide();
-        Debug.Log(dialogue);
         if(hasTanukiOrOni && !dialogueTriggered){
             TriggerHintDialogue();
             dialogueTriggered = true;
@@ -96,6 +100,7 @@ public class infoProvider : MonoBehaviour
         else {
             Debug.Log("wrong target, game over");
             dialogue.CaughtDialogue(caller_id);
+            AccuseSFX.Play();
 
         }
         return isTarget;
