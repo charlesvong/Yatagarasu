@@ -1,9 +1,9 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
 
-public class playerMovement2 : MonoBehaviour
+public class KeyboardMovement : MonoBehaviour
 {
     public float playerSpeed;
     public float gravityFactor;
@@ -12,16 +12,11 @@ public class playerMovement2 : MonoBehaviour
     Vector3 forward, right;
     private Vector3 warpPosition = Vector3.zero;
     public Camera camera;
-
-    public int controllerID;
-    private Player player;
-
     private bool ableMove = true;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        player = ReInput.players.GetPlayer(controllerID);
     }
 
     void Update()
@@ -44,12 +39,11 @@ public class playerMovement2 : MonoBehaviour
             gravity = Vector3.zero;
         }
 
-        float moveHorizontal = player.GetAxis("Move Horizontal");
-        float moveVertical = player.GetAxis("Move Vertical");
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        float moveVertical = Input.GetAxis("Vertical");
 
-
-        Vector3 rightMovement = right * playerSpeed * Time.deltaTime * player.GetAxis("Move Horizontal");
-        Vector3 upMovement = forward * playerSpeed * Time.deltaTime * player.GetAxis("Move Vertical");
+        Vector3 rightMovement = right * playerSpeed * Time.deltaTime * Input.GetAxis("Horizontal");
+        Vector3 upMovement = forward * playerSpeed * Time.deltaTime * Input.GetAxis("Vertical");
 
 
         if (ableMove)
@@ -89,10 +83,6 @@ public class playerMovement2 : MonoBehaviour
     public void WarpToPosition(Vector3 newPosition)
     {
         warpPosition = newPosition;
-    }
-
-    public Player getController() {
-        return player;
     }
 
     public void disableMove() {
