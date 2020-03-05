@@ -10,7 +10,7 @@ public class FungusDialogue : MonoBehaviour
     private List<int> Banterlist = new List<int>{1,2,3,4,5};
 
     private List<int> OneLinerlist = new List<int>{1,2,3};
-    // Start is called before the first frame update
+
     public void banter(){
         int randomNum = Random.Range(Banterlist[0], Banterlist.Count + 1);
         string blockName = "Banter" + randomNum.ToString();
@@ -18,7 +18,6 @@ public class FungusDialogue : MonoBehaviour
         if(sayDialog.isActiveAndEnabled){
             return;
         }
-        Debug.Log(blockName);
         Banterlist.Remove(randomNum);
         flowchart.ExecuteBlock(blockName);
     }
@@ -37,7 +36,6 @@ public class FungusDialogue : MonoBehaviour
         if(sayDialog.isActiveAndEnabled){
             return;
         }
-        Debug.Log(blockName);
         flowchart.ExecuteBlock(blockName);
     }
 
@@ -47,7 +45,6 @@ public class FungusDialogue : MonoBehaviour
         if(sayDialog.isActiveAndEnabled){
             return;
         }
-        Debug.Log(blockName);
         flowchart.ExecuteBlock(blockName);
     }
 
@@ -67,7 +64,6 @@ public class FungusDialogue : MonoBehaviour
         if(sayDialog.isActiveAndEnabled){
             return;
         }
-        Debug.Log(blockName);
         flowchart.ExecuteBlock(blockName);
     }
 }
