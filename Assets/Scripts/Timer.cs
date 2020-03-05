@@ -25,6 +25,8 @@ public class Timer : MonoBehaviour
     private AudioSource MainTheme;
     private AudioSource GameOverTheme;
 
+    private TutorialCutscene cutscene;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,11 +34,16 @@ public class Timer : MonoBehaviour
         dialogue = GetComponent<FungusDialogue>();
         MainTheme = MainBGM.GetComponent<AudioSource>();
         GameOverTheme = GameOverBGM.GetComponent<AudioSource>();
+        cutscene = GameObject.Find("TutorialCutscene").GetComponent<TutorialCutscene>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Don't activate timer until cutscene is finished playing
+        if(!cutscene.GetStatus()){
+            return;
+        }
         if(timer > 0.5f)
         {
             timer -= Time.deltaTime;
