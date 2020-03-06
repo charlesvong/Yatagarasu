@@ -33,11 +33,9 @@ public class interactiveArea : MonoBehaviour
         {
             bool result = interactObj.GetComponent<infoProvider>().accuse();
             if (!result) {
-                Debug.Log("u are caught");
                 actionCode = -1;
                 hint.hide();
-                player.gameObject.SetActive(false);
-            
+                player.gameObject.GetComponent<playerMovement2>().disableMove();
             }
 
         }
