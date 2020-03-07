@@ -5,14 +5,13 @@ using Rewired;
 
 public class TutorialCutscene : MonoBehaviour
 {
-    private float cutsceneTimer = 20f;
+    private float cutsceneTimer = 0f;
     private bool TutorialFinished = false;
     public Animator BlackSlide;
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(cutsceneTimer);
         if(TutorialFinished){
             return;
         }
