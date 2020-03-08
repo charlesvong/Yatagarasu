@@ -28,7 +28,6 @@ public class interactiveArea : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(DenyHintText.gameObject.activeSelf);
         if(timer > 0.0f){
             timer -= Time.deltaTime;
         }
