@@ -15,6 +15,7 @@ public class infoProvider : MonoBehaviour
     public dialogManager dManager;
     public bool isTarget = false;
     public GameObject Hint;
+    public Texture Hint2D;
     public bool hasTanukiOrOni;
     private FungusDialogue dialogue;
     private bool dialogueTriggered = false;
@@ -59,7 +60,7 @@ public class infoProvider : MonoBehaviour
         caller.GetComponent<playerMovement2>().disableMove();
         providing = true;
         timer = talkTime;
-        dManager.getPresent(caller_id).Show(Hint);
+        dManager.getPresent(caller_id).Show2d(Hint2D);
         HintSFX.Play();
     }
 
