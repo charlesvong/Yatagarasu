@@ -2768,6 +2768,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1958544107}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &100068215 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7865450433454239220, guid: a63931a5a8e127c4ca9beaeabed43d4f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1958544107}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100068213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &100068218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14298,9 +14310,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d97809baf0d96c2468daea18a5b010e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Violet: {fileID: 196612447}
-  Rook: {fileID: 1831294846}
-  Raven: {fileID: 1738979878}
+  Violet: {fileID: 196612448}
+  Rook: {fileID: 1831294847}
+  Raven: {fileID: 1738979879}
   GameOverScreen: {fileID: 2073924552}
   uiText: {fileID: 1967581892}
   MainBGM: {fileID: 1259019422}
@@ -30621,6 +30633,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1730060933}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1734662905 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7865450433927864234, guid: a63931a5a8e127c4ca9beaeabed43d4f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1958544107}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1738979878
 GameObject:
   m_ObjectHideFlags: 0
@@ -30802,8 +30820,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0fff5de760241c43ba55f1c19e9faf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ConfirmationPopup: {fileID: 77582434}
-  firstSelected: {fileID: 271058743}
+  m_ConfirmationPopup: {fileID: 1734662905}
+  firstSelected: {fileID: 100068215}
 --- !u!1 &1763959590
 GameObject:
   m_ObjectHideFlags: 0

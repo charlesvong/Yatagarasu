@@ -36,7 +36,7 @@ public class interactiveArea : MonoBehaviour
             DenyHintText.gameObject.SetActive(false);
         }
         if (controller.getController().GetButtonDown("Interact") && interactObj != null) {
-            if(interactObj.GetComponent<infoProvider>().isAccusing()){
+            if(interactObj.GetComponent<infoProvider>()!= null && interactObj.GetComponent<infoProvider>().isAccusing()){
                 if(!DenyAccuseText.gameObject.activeSelf){
                     DenyHintText.enabled = true;
                     DenyHintText.gameObject.SetActive(true);
