@@ -26,14 +26,14 @@ public class interactableProvider : Interactable
     {
         if (player_id == provider.getRestrict() && provider.isProviding())
         {
-            return "B - End talking \nA - Accuse";
+            return "End talking";
         }
         else if (player_id == provider.getRestrict())
         {
-            return "B - Get Info \nA - Accuse";
+            return "Hint \nAccuse";
         }
         else {
-            return "A - Accuse";
+            return "Accuse";
         }
     }
 
