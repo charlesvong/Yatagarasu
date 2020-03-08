@@ -20,6 +20,7 @@ public class playerMovement2 : MonoBehaviour
     private bool warpSet = false;
 
     private bool ableMove = true;
+    private bool caught = false;
 
 
     void Start()
@@ -115,11 +116,16 @@ public class playerMovement2 : MonoBehaviour
         WarpToPosition(startPosition);
         disableMove();
         respawn.gameObject.SetActive(true);
+        caught = true;
     }
 
     public void revive() {
         enableMove();
         respawn.gameObject.SetActive(false);
+        caught = false;
     }
 
+    public bool isCaught() {
+        return caught;
+    }
 }

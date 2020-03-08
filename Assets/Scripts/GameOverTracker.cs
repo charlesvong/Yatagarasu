@@ -6,9 +6,9 @@ using Rewired;
 
 public class GameOverTracker : MonoBehaviour
 {
-    public GameObject Violet;
-    public GameObject Rook;
-    public GameObject Raven;
+    public playerMovement2 Violet;
+    public playerMovement2 Rook;
+    public playerMovement2 Raven;
     [SerializeField] private GameObject GameOverScreen;
     [SerializeField] private Text uiText;
     [SerializeField] private GameObject MainBGM;
@@ -20,7 +20,7 @@ public class GameOverTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!Violet.activeSelf && !Rook.activeSelf && !Raven.activeSelf)
+        if(Violet.isCaught() && Rook.isCaught() && Raven.isCaught())
         {
             GameOver();
         }
