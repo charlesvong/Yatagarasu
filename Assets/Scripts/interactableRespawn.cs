@@ -7,8 +7,8 @@ public class interactableRespawn : Interactable
     public int id;
     private bool firstTime = true;
 
-    private int ACTION_REVIVE = 1;
-    private int ACTION_NOTHING = 2;
+    private int ACTION_REVIVE = 2;
+    private int ACTION_NOTHING = 3;
     // Start is called before the first frame update
 
     public playerMovement2 player;
@@ -30,7 +30,7 @@ public class interactableRespawn : Interactable
             return "";
         }
         else if (firstTime) {
-            return "B - revive";
+            return "Revive";
         }
         return "";
     }

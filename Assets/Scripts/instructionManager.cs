@@ -45,6 +45,11 @@ public class instructionManager : MonoBehaviour
             circleButton.enabled = false;
             XButton.enabled = true;
         }
+        else if (actionCode == 3)
+        {
+            circleButton.enabled = false;
+            XButton.enabled = false;
+        }
         else if(actionCode == 2){
             XButton.enabled = false;
             float new_factor = factor;
@@ -52,6 +57,7 @@ public class instructionManager : MonoBehaviour
                 new_factor -= 0.03f;
             }
             circle_offset = new Vector3(-120 + (new_factor * Screen.width),0,0);
+            circleButton.enabled = true;
         }
         else{
             circle_offset = new Vector3(-70 + (factor * Screen.width),25 + (-vert_factor * Screen.height),0);

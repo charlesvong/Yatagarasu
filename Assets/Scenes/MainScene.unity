@@ -28124,7 +28124,7 @@ MonoBehaviour:
   camera: {fileID: 1604186791}
   startPosition: {x: 0, y: 0, z: 0}
   respawn: {fileID: 935050461}
-  controllerID: 0
+  controllerID: 2
 --- !u!114 &1738979880
 MonoBehaviour:
   m_ObjectHideFlags: 0
