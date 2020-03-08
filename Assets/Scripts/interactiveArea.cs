@@ -1,16 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Rewired;
 
 public class interactiveArea : MonoBehaviour
 {
     private Interactable interactObj = null;
+    private float timer = 0;
     private int actionCode = -1;
     private bool interacted = false;
     private GameObject player;
     private instructionManager hint;
     public int player_id;
+    public Text DenyAccuseText;
+    public Text DenyHintText;
     private playerMovement2 controller;
 
     // Start is called before the first frame update
@@ -24,20 +28,43 @@ public class interactiveArea : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(timer > 0.0f){
+            timer -= Time.deltaTime;
+        }
+        else{
+            DenyAccuseText.gameObject.SetActive(false);
+            DenyHintText.gameObject.SetActive(false);
+        }
         if (controller.getController().GetButtonDown("Interact") && interactObj != null) {
-            interactObj.interact(actionCode);
-            interacted = true;
+            if(interactObj.GetComponent<infoProvider>().isAccusing()){
+                if(!DenyAccuseText.gameObject.activeSelf){
+                    DenyHintText.enabled = true;
+                    DenyHintText.gameObject.SetActive(true);
+                    timer = 2f;
+                }
+            }
+            else{
+                interactObj.interact(actionCode);
+                interacted = true;
+            }
+
         }
 
         if (controller.getController().GetButtonDown("Accuse") && interactObj.GetComponent<infoProvider>() != null)
         {
             if(!interactObj.GetComponent<infoProvider>().isProviding()){
-                bool result = interactObj.GetComponent<infoProvider>().accuse();
-                if (!result) {
-                    actionCode = -1;
-                    hint.hide();
-                    player.gameObject.GetComponent<playerMovement2>().getCaught();
+                if(!interactObj.GetComponent<infoProvider>().isAccusing()){
+                    interactObj.GetComponent<infoProvider>().Accusing();
+                    interactObj.GetComponent<infoProvider>().ConfirmPopup(interactObj);
                 }
+                //Debug.Log(DenyHintText.enabled);
+                else if(!DenyHintText.gameObject.activeSelf)
+                {
+                    DenyAccuseText.enabled = true;
+                    DenyAccuseText.gameObject.SetActive(true);
+                    timer = 2f;
+                }
+                
             }
         }
 
@@ -53,6 +80,15 @@ public class interactiveArea : MonoBehaviour
             hint.hide();
         }
 
+    }
+
+    public void initiateAccusation(){
+        bool result = interactObj.GetComponent<infoProvider>().accuse();
+        if (!result) {
+            actionCode = -1;
+            hint.hide();
+            player.gameObject.GetComponent<playerMovement2>().getCaught();
+        }
     }
 
     void OnTriggerEnter(Collider other) {
