@@ -51,6 +51,7 @@ public class interactableProvider : Interactable
         }
         else
         {
+            provider.setCaller(player_obj, player_id);
             return ACTION_NOTHING;
         }
     }

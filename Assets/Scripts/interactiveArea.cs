@@ -32,12 +32,8 @@ public class interactiveArea : MonoBehaviour
         if (controller.getController().GetButtonDown("Accuse") && interactObj.GetComponent<infoProvider>() != null)
         {
             if(!interactObj.GetComponent<infoProvider>().isProviding()){
-                bool result = interactObj.GetComponent<infoProvider>().accuse();
-                if (!result) {
-                    actionCode = -1;
-                    hint.hide();
-                    player.gameObject.GetComponent<playerMovement2>().getCaught();
-                }
+                interactObj.GetComponent<infoProvider>().Accusing();
+                interactObj.GetComponent<infoProvider>().ConfirmPopup(interactObj);
             }
         }
 
@@ -53,6 +49,15 @@ public class interactiveArea : MonoBehaviour
             hint.hide();
         }
 
+    }
+
+    public void initiateAccusation(){
+        bool result = interactObj.GetComponent<infoProvider>().accuse();
+        if (!result) {
+            actionCode = -1;
+            hint.hide();
+            player.gameObject.GetComponent<playerMovement2>().getCaught();
+        }
     }
 
     void OnTriggerEnter(Collider other) {

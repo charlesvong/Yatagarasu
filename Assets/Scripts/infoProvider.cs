@@ -9,6 +9,7 @@ public class infoProvider : MonoBehaviour
     public int restrict_player_id;
     private GameObject caller;
     private bool providing = false;
+    private bool accusing = false;
     public float talkTime;
     private float timer;
     private int caller_id;
@@ -19,6 +20,7 @@ public class infoProvider : MonoBehaviour
     public bool hasTanukiOrOni;
     private FungusDialogue dialogue;
     private bool dialogueTriggered = false;
+    private bool PopupState = false;
 
     private VictoryScreen victoryComponent;
     private AudioSource AccuseSFX;
@@ -36,7 +38,7 @@ public class infoProvider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (providing && timer > 0.0f)
+        if (providing && timer > 0.0f || accusing)
         {
             Vector3 targetDirection = caller.transform.position - this.transform.position;
             float singleStep = 5 * Time.deltaTime;
@@ -82,6 +84,11 @@ public class infoProvider : MonoBehaviour
         }
     }
 
+    public void Accusing() {
+        this.GetComponent<AI>().Stand();
+        accusing = true;
+    }
+
     public void setCaller(GameObject obj, int id) {
         this.caller = obj;
         this.caller_id = id;
@@ -91,6 +98,10 @@ public class infoProvider : MonoBehaviour
         return providing;
     }
 
+    public void ConfirmPopup(Interactable obj){
+        caller.GetComponent<ConfirmationPopup>().setActive(obj);
+        accusing = true;
+    }
     public bool accuse() {
         if (isTarget)
         {
@@ -106,6 +117,11 @@ public class infoProvider : MonoBehaviour
 
     public void TriggerHintDialogue(){
         dialogue.hint();
+    }
+
+    public void EndAccusing(){
+        accusing = false;
+        this.GetComponent<AI>().BackToDefault();
     }
 
 }
