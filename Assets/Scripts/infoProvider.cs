@@ -59,7 +59,6 @@ public class infoProvider : MonoBehaviour
         caller.GetComponent<playerMovement2>().disableMove();
         providing = true;
         timer = talkTime;
-        Debug.Log("I will give you info");
         dManager.getPresent(caller_id).Show(Hint);
         HintSFX.Play();
     }
@@ -94,11 +93,9 @@ public class infoProvider : MonoBehaviour
     public bool accuse() {
         if (isTarget)
         {
-            Debug.Log("accused, game success");
             victoryComponent.Victory();
         }
         else {
-            Debug.Log("wrong target, game over");
             dialogue.CaughtDialogue(caller_id);
             AccuseSFX.Play();
 
