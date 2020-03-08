@@ -10,6 +10,7 @@ public class PauseMenu : MonoBehaviour
 
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
+    private Button firstSelected;
     private playerMovement2 controller;
 
     // Update is called once per frame
@@ -44,6 +45,10 @@ public class PauseMenu : MonoBehaviour
         controller.getController().controllers.maps.LoadMap(ControllerType.Joystick, controller.controllerID, "PauseMenu", "default", true);
         controller.getController().controllers.maps.LoadMap(ControllerType.Joystick, controller.controllerID, "default", "default", false);
         pauseMenuUI.SetActive(true);
+
+        
+        firstSelected = pauseMenuUI.GetComponentsInChildren<Button>()[0];
+        firstSelected.Select();
 
         Time.timeScale = 0;
         GameIsPaused = true;

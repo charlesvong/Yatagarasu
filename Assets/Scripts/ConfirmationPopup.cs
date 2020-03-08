@@ -19,7 +19,7 @@ public class ConfirmationPopup : MonoBehaviour
     }
 
     public void setActive(Interactable obj){
-        controller.getController().controllers.maps.LoadMap(ControllerType.Joystick, controller.controllerID, "PauseMenu", "default", true);
+        controller.getController().controllers.maps.LoadMap(ControllerType.Joystick, controller.controllerID, "ConfirmationScreen", "default", true);
         controller.getController().controllers.maps.LoadMap(ControllerType.Joystick, controller.controllerID, "default", "default", false);
         m_ConfirmationPopup.SetActive(true);
 
@@ -32,7 +32,7 @@ public class ConfirmationPopup : MonoBehaviour
     }
 
     public void reset(){
-        controller.getController().controllers.maps.LoadMap(ControllerType.Joystick, controller.controllerID, "PauseMenu", "default", false);
+        controller.getController().controllers.maps.LoadMap(ControllerType.Joystick, controller.controllerID, "ConfirmationScreen", "default", false);
         controller.getController().controllers.maps.LoadMap(ControllerType.Joystick, controller.controllerID, "default", "default", true);
 
         m_ConfirmationPopup.SetActive(false);
