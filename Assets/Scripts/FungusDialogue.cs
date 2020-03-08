@@ -66,4 +66,8 @@ public class FungusDialogue : MonoBehaviour
         }
         flowchart.ExecuteBlock(blockName);
     }
+
+    public void Skip(){
+        flowchart.StopBlock("Beginning");
+    }
 }
