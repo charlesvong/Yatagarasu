@@ -46,7 +46,7 @@ public class interactiveArea : MonoBehaviour
             hint.hide();
         }
 
-        if (interactObj.gameObject.activeSelf == false)
+        if (actionCode != -1 && interactObj.gameObject.activeSelf == false)
         {
             interactObj = null;
             actionCode = -1;
