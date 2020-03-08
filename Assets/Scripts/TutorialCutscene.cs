@@ -17,7 +17,6 @@ public class TutorialCutscene : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // skip update function once tutorial is done
         if(TutorialFinished){
             return;
         }
