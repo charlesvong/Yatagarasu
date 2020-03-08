@@ -31,13 +31,14 @@ public class interactiveArea : MonoBehaviour
 
         if (controller.getController().GetButtonDown("Accuse") && interactObj.GetComponent<infoProvider>() != null)
         {
-            bool result = interactObj.GetComponent<infoProvider>().accuse();
-            if (!result) {
-                actionCode = -1;
-                hint.hide();
-                player.gameObject.GetComponent<playerMovement2>().getCaught();
+            if(!interactObj.GetComponent<infoProvider>().isProviding()){
+                bool result = interactObj.GetComponent<infoProvider>().accuse();
+                if (!result) {
+                    actionCode = -1;
+                    hint.hide();
+                    player.gameObject.GetComponent<playerMovement2>().getCaught();
+                }
             }
-
         }
 
         if (actionCode != -1 && interactObj == null) {
@@ -59,7 +60,7 @@ public class interactiveArea : MonoBehaviour
         if (temp) {
             interactObj = temp.getInteractObject();
             actionCode = temp.getActionCode(player_id, player);
-            hint.changeAndUpdateHint(temp.getInstructions(player_id)); 
+            hint.changeAndUpdateHint(temp.getInstructions(player_id), actionCode); 
         }
     }
 
@@ -69,7 +70,7 @@ public class interactiveArea : MonoBehaviour
         if (temp && temp == interactObj && interacted)
         {
             actionCode = temp.getActionCode(player_id, player);
-            hint.changeAndUpdateHint(temp.getInstructions(player_id));
+            hint.changeAndUpdateHint(temp.getInstructions(player_id), actionCode);
             interacted = false;
         }
     }
