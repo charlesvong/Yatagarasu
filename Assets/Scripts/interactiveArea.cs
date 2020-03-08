@@ -35,12 +35,19 @@ public class interactiveArea : MonoBehaviour
             if (!result) {
                 actionCode = -1;
                 hint.hide();
-                player.gameObject.GetComponent<playerMovement2>().disableMove();
+                player.gameObject.GetComponent<playerMovement2>().getCaught();
             }
 
         }
 
         if (actionCode != -1 && interactObj == null) {
+            actionCode = -1;
+            hint.hide();
+        }
+
+        if (interactObj.gameObject.activeSelf == false)
+        {
+            interactObj = null;
             actionCode = -1;
             hint.hide();
         }
