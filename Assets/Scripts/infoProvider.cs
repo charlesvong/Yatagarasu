@@ -98,6 +98,10 @@ public class infoProvider : MonoBehaviour
         return providing;
     }
 
+    public bool isAccusing() {
+        return accusing;
+    }
+
     public void ConfirmPopup(Interactable obj){
         caller.GetComponent<ConfirmationPopup>().setActive(obj);
         accusing = true;

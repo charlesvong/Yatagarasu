@@ -49,9 +49,12 @@ public class interactableProvider : Interactable
             provider.setCaller(player_obj, player_id);
             return ACTION_PROVIDE;
         }
+        else if(!provider.isProviding()){
+            provider.setCaller(player_obj, player_id);
+            return ACTION_NOTHING;
+        }
         else
         {
-            provider.setCaller(player_obj, player_id);
             return ACTION_NOTHING;
         }
     }
