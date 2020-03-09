@@ -48,7 +48,7 @@ public class interactableRespawn : Interactable
         return ACTION_NOTHING;
     }
 
-    override public void interact(int actionCode)
+    override public void interact(int actionCode, GameObject p_player, int player_id)
     {
         if (actionCode == ACTION_REVIVE)
         {

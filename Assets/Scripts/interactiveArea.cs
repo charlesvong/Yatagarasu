@@ -44,7 +44,7 @@ public class interactiveArea : MonoBehaviour
                 }
             }
             else{
-                interactObj.interact(actionCode);
+                interactObj.interact(actionCode, player, player_id);
                 interacted = true;
             }
 
@@ -54,8 +54,8 @@ public class interactiveArea : MonoBehaviour
         {
             if(!interactObj.GetComponent<infoProvider>().isProviding()){
                 if(!interactObj.GetComponent<infoProvider>().isAccusing()){
-                    interactObj.GetComponent<infoProvider>().Accusing();
-                    interactObj.GetComponent<infoProvider>().ConfirmPopup(interactObj);
+                    interactObj.GetComponent<infoProvider>().Accusing(player, player_id);
+                    interactObj.GetComponent<infoProvider>().ConfirmPopup(interactObj, player);
                 }
                 //Debug.Log(DenyHintText.enabled);
                 else if(!DenyHintText.gameObject.activeSelf)
@@ -83,7 +83,7 @@ public class interactiveArea : MonoBehaviour
     }
 
     public void initiateAccusation(){
-        bool result = interactObj.GetComponent<infoProvider>().accuse();
+        bool result = interactObj.GetComponent<infoProvider>().accuse(player_id);
         if (!result) {
             actionCode = -1;
             hint.hide();

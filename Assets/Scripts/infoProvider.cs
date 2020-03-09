@@ -48,7 +48,7 @@ public class infoProvider : MonoBehaviour
             timer -= Time.deltaTime;
         }
         else if (providing) {
-            endProviding();
+            endProviding(caller, caller_id);
         }
         
     }
@@ -57,21 +57,22 @@ public class infoProvider : MonoBehaviour
         return restrict_player_id;
     }
 
-    public void provideInfo() {
+    public void provideInfo(GameObject p_caller, int p_caller_id) {
         this.GetComponent<AI>().Stand();
-        caller.GetComponent<playerMovement2>().disableMove();
+        p_caller.GetComponent<playerMovement2>().disableMove();
         providing = true;
         timer = talkTime;
-        dManager.getPresent(caller_id).Show2d(Hint2D);
+        dManager.getPresent(p_caller_id).Show2d(Hint2D);
         HintSFX.Play();
+        setCaller(p_caller, p_caller_id);
     }
 
-    public void endProviding() {
+    public void endProviding(GameObject p_caller, int p_caller_id) {
         timer = 0;
         providing = false;
         this.GetComponent<AI>().BackToDefault();
-        caller.GetComponent<playerMovement2>().enableMove();
-        dManager.getPresent(caller_id).Hide();
+        p_caller.GetComponent<playerMovement2>().enableMove();
+        dManager.getPresent(p_caller_id).Hide();
         if(hasTanukiOrOni && !dialogueTriggered){
             TriggerHintDialogue();
             dialogueTriggered = true;
@@ -84,9 +85,10 @@ public class infoProvider : MonoBehaviour
         }
     }
 
-    public void Accusing() {
+    public void Accusing(GameObject p_caller, int p_caller_id) {
         this.GetComponent<AI>().Stand();
         accusing = true;
+        setCaller(p_caller, p_caller_id);
     }
 
     public void setCaller(GameObject obj, int id) {
@@ -102,17 +104,17 @@ public class infoProvider : MonoBehaviour
         return accusing;
     }
 
-    public void ConfirmPopup(Interactable obj){
-        caller.GetComponent<ConfirmationPopup>().setActive(obj);
+    public void ConfirmPopup(Interactable obj, GameObject p_caller){
+        p_caller.GetComponent<ConfirmationPopup>().setActive(obj);
         accusing = true;
     }
-    public bool accuse() {
+    public bool accuse(int p_caller_id) {
         if (isTarget)
         {
             victoryComponent.Victory();
         }
         else {
-            dialogue.CaughtDialogue(caller_id);
+            dialogue.CaughtDialogue(p_caller_id);
             AccuseSFX.Play();
 
         }
