@@ -9,15 +9,18 @@ public class infoProvider : MonoBehaviour
     public int restrict_player_id;
     private GameObject caller;
     private bool providing = false;
+    private bool accusing = false;
     public float talkTime;
     private float timer;
     private int caller_id;
     public dialogManager dManager;
     public bool isTarget = false;
     public GameObject Hint;
+    public Texture Hint2D;
     public bool hasTanukiOrOni;
     private FungusDialogue dialogue;
     private bool dialogueTriggered = false;
+    private bool PopupState = false;
 
     private VictoryScreen victoryComponent;
     private AudioSource AccuseSFX;
@@ -35,7 +38,7 @@ public class infoProvider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (providing && timer > 0.0f)
+        if (providing && timer > 0.0f || accusing)
         {
             Vector3 targetDirection = caller.transform.position - this.transform.position;
             float singleStep = 5 * Time.deltaTime;
@@ -45,7 +48,7 @@ public class infoProvider : MonoBehaviour
             timer -= Time.deltaTime;
         }
         else if (providing) {
-            endProviding();
+            endProviding(caller, caller_id);
         }
         
     }
@@ -54,22 +57,22 @@ public class infoProvider : MonoBehaviour
         return restrict_player_id;
     }
 
-    public void provideInfo() {
+    public void provideInfo(GameObject p_caller, int p_caller_id) {
         this.GetComponent<AI>().Stand();
-        caller.GetComponent<playerMovement2>().disableMove();
+        p_caller.GetComponent<playerMovement2>().disableMove();
         providing = true;
         timer = talkTime;
-        Debug.Log("I will give you info");
-        dManager.getPresent(caller_id).Show(Hint);
+        dManager.getPresent(p_caller_id).Show2d(Hint2D);
         HintSFX.Play();
+        setCaller(p_caller, p_caller_id);
     }
 
-    public void endProviding() {
+    public void endProviding(GameObject p_caller, int p_caller_id) {
         timer = 0;
         providing = false;
         this.GetComponent<AI>().BackToDefault();
-        caller.GetComponent<playerMovement2>().enableMove();
-        dManager.getPresent(caller_id).Hide();
+        p_caller.GetComponent<playerMovement2>().enableMove();
+        dManager.getPresent(p_caller_id).Hide();
         if(hasTanukiOrOni && !dialogueTriggered){
             TriggerHintDialogue();
             dialogueTriggered = true;
@@ -82,6 +85,12 @@ public class infoProvider : MonoBehaviour
         }
     }
 
+    public void Accusing(GameObject p_caller, int p_caller_id) {
+        this.GetComponent<AI>().Stand();
+        accusing = true;
+        setCaller(p_caller, p_caller_id);
+    }
+
     public void setCaller(GameObject obj, int id) {
         this.caller = obj;
         this.caller_id = id;
@@ -91,15 +100,21 @@ public class infoProvider : MonoBehaviour
         return providing;
     }
 
-    public bool accuse() {
+    public bool isAccusing() {
+        return accusing;
+    }
+
+    public void ConfirmPopup(Interactable obj, GameObject p_caller){
+        p_caller.GetComponent<ConfirmationPopup>().setActive(obj);
+        accusing = true;
+    }
+    public bool accuse(int p_caller_id) {
         if (isTarget)
         {
-            Debug.Log("accused, game success");
             victoryComponent.Victory();
         }
         else {
-            Debug.Log("wrong target, game over");
-            dialogue.CaughtDialogue(caller_id);
+            dialogue.CaughtDialogue(p_caller_id);
             AccuseSFX.Play();
 
         }
@@ -108,6 +123,11 @@ public class infoProvider : MonoBehaviour
 
     public void TriggerHintDialogue(){
         dialogue.hint();
+    }
+
+    public void EndAccusing(){
+        accusing = false;
+        this.GetComponent<AI>().BackToDefault();
     }
 
 }

@@ -26,14 +26,14 @@ public class interactableProvider : Interactable
     {
         if (player_id == provider.getRestrict() && provider.isProviding())
         {
-            return "B - End talking \nA - Accuse";
+            return "End talking";
         }
         else if (player_id == provider.getRestrict())
         {
-            return "B - Get Info \nA - Accuse";
+            return "Hint \nAccuse";
         }
         else {
-            return "A - Accuse";
+            return "Accuse";
         }
     }
 
@@ -46,25 +46,26 @@ public class interactableProvider : Interactable
 
         else if (player_id == provider.getRestrict())
         {
-            provider.setCaller(player_obj, player_id);
             return ACTION_PROVIDE;
+        }
+        else if(!provider.isProviding()){
+            return ACTION_NOTHING;
         }
         else
         {
-            provider.setCaller(player_obj, player_id);
             return ACTION_NOTHING;
         }
     }
 
-    override public void interact(int actionCode)
+    override public void interact(int actionCode, GameObject player, int player_id)
     {
         if (actionCode == ACTION_PROVIDE)
         {
-            provider.provideInfo();
+            provider.provideInfo(player, player_id);
         }
         else if (actionCode == ACTION_END_TALK)
         {
-            provider.endProviding();
+            provider.endProviding(player, player_id);
         }
     }
 }

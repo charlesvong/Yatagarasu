@@ -37,7 +37,7 @@ public class interactableCube : Interactable
         return ACTION_DESTROY;
     }
 
-    override public void interact(int actionCode) {
+    override public void interact(int actionCode, GameObject player, int player_id) {
         if (actionCode == ACTION_DESTROY)
         {
             Destroy(this.gameObject);

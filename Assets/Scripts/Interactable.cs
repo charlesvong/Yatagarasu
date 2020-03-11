@@ -24,5 +24,5 @@ abstract public class Interactable : MonoBehaviour
         return this;
     }
 
-    abstract public void interact(int actionCode);
+    abstract public void interact(int actionCode, GameObject player, int player_id);
 }

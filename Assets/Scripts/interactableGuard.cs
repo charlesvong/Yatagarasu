@@ -97,7 +97,7 @@ public class interactableGuard : Interactable
         return ACTION_NOTHING;
     }
 
-    override public void interact(int actionCode)
+    override public void interact(int actionCode, GameObject player, int player_id)
     {
         if (actionCode == ACTION_ATTRACK)
         {

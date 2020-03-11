@@ -12,16 +12,22 @@ public class playerMovement2 : MonoBehaviour
     Vector3 forward, right;
     private Vector3 warpPosition = Vector3.zero;
     public Camera camera;
+    public Vector3 startPosition;
+    public interactableRespawn respawn;
 
     public int controllerID;
     private Player player;
+    private bool warpSet = false;
 
     private bool ableMove = true;
+    private bool caught = false;
+
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
         player = ReInput.players.GetPlayer(controllerID);
+        startPosition = this.transform.position;
     }
 
     void Update()
@@ -51,7 +57,6 @@ public class playerMovement2 : MonoBehaviour
         Vector3 rightMovement = right * playerSpeed * Time.deltaTime * player.GetAxis("Move Horizontal");
         Vector3 upMovement = forward * playerSpeed * Time.deltaTime * player.GetAxis("Move Vertical");
 
-
         if (ableMove)
         {
 
@@ -66,12 +71,6 @@ public class playerMovement2 : MonoBehaviour
             controller.Move(upMovement);
             controller.Move(move);
 
-            if (warpPosition != Vector3.zero)
-            {
-                transform.position = warpPosition;
-                warpPosition = Vector3.zero;
-            }
-
             if ((moveHorizontal * moveHorizontal + moveVertical * moveVertical > 0))
             {
                 this.transform.Find("model").GetComponent<Animator>().SetBool("walk", true);
@@ -85,10 +84,19 @@ public class playerMovement2 : MonoBehaviour
             this.transform.Find("model").GetComponent<Animator>().SetBool("walk", false);
         }
 
+        if (warpSet)
+        {
+            transform.position = warpPosition;
+            if (transform.position == warpPosition) {
+                warpSet = false;
+            }
+        }
+
     }
     public void WarpToPosition(Vector3 newPosition)
     {
         warpPosition = newPosition;
+        warpSet = true;
     }
 
     public Player getController() {
@@ -103,4 +111,21 @@ public class playerMovement2 : MonoBehaviour
         ableMove = true;
     }
 
+    public void getCaught()
+    {
+        WarpToPosition(startPosition);
+        disableMove();
+        respawn.gameObject.SetActive(true);
+        caught = true;
+    }
+
+    public void revive() {
+        enableMove();
+        respawn.gameObject.SetActive(false);
+        caught = false;
+    }
+
+    public bool isCaught() {
+        return caught;
+    }
 }
