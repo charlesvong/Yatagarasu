@@ -25,6 +25,8 @@ public class infoProvider : MonoBehaviour
     private VictoryScreen victoryComponent;
     private AudioSource AccuseSFX;
     private AudioSource HintSFX;
+    private bool HintAcquired = false;
+    public GameObject CheckmarkSprite;
 
     // Start is called before the first frame update
     void Start()
@@ -65,6 +67,11 @@ public class infoProvider : MonoBehaviour
         dManager.getPresent(p_caller_id).Show2d(Hint2D);
         HintSFX.Play();
         setCaller(p_caller, p_caller_id);
+
+        if(!HintAcquired){
+            setCheckmark();
+            HintAcquired = true;
+        }
     }
 
     public void endProviding(GameObject p_caller, int p_caller_id) {
@@ -128,6 +135,11 @@ public class infoProvider : MonoBehaviour
     public void EndAccusing(){
         accusing = false;
         this.GetComponent<AI>().BackToDefault();
+    }
+
+    public void setCheckmark(){
+        SpriteRenderer checkmark = CheckmarkSprite.GetComponent<SpriteRenderer>();
+        checkmark.gameObject.SetActive(true);
     }
 
 }
