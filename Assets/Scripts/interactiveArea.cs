@@ -16,6 +16,7 @@ public class interactiveArea : MonoBehaviour
     public Text DenyAccuseText;
     public Text DenyHintText;
     private playerMovement2 controller;
+    public GameObject accuseTracker;
 
     // Start is called before the first frame update
     void Start()
@@ -53,7 +54,7 @@ public class interactiveArea : MonoBehaviour
         if (controller.getController().GetButtonDown("Accuse") && interactObj.GetComponent<infoProvider>() != null)
         {
             if(!interactObj.GetComponent<infoProvider>().isProviding()){
-                if(!interactObj.GetComponent<infoProvider>().isAccusing()){
+                if(!interactObj.GetComponent<infoProvider>().isAccusing() && !accuseTracker.GetComponent<AccuseTracker>().getAccuseVarState()){
                     interactObj.GetComponent<infoProvider>().Accusing(player, player_id);
                     interactObj.GetComponent<infoProvider>().ConfirmPopup(interactObj, player);
                 }
