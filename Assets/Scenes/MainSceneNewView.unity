@@ -4076,7 +4076,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 196612448}
-  offset: {x: -2.8, y: 1.7, z: -2}
+  offset: {x: -2.8, y: 1.7, z: -2.8}
   collider: {fileID: 831350645}
   camera: {fileID: 1193892558}
 --- !u!4 &162397999
@@ -20344,7 +20344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1831294847}
-  offset: {x: -2.8, y: 1.7, z: -2}
+  offset: {x: -2.8, y: 1.7, z: -2.8}
   collider: {fileID: 1424681140}
   camera: {fileID: 1331582493}
 --- !u!4 &1062607406
@@ -25507,7 +25507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1738979879}
-  offset: {x: -2.8, y: 1.7, z: -2}
+  offset: {x: -2.8, y: 1.7, z: -2.8}
   collider: {fileID: 1288521686}
   camera: {fileID: 1604186791}
 --- !u!4 &1374274953
