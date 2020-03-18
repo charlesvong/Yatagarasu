@@ -128,4 +128,8 @@ public class playerMovement2 : MonoBehaviour
     public bool isCaught() {
         return caught;
     }
+
+    public bool getMoveStatus(){
+        return ableMove;
+    }
 }
