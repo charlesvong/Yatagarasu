@@ -113,19 +113,23 @@ public class playerMovement2 : MonoBehaviour
 
     public void getCaught()
     {
-        WarpToPosition(startPosition);
+        WarpToPosition(respawn.gameObject.transform.position);
         disableMove();
-        respawn.gameObject.SetActive(true);
+//        respawn.gameObject.SetActive(true);
         caught = true;
     }
 
     public void revive() {
         enableMove();
-        respawn.gameObject.SetActive(false);
+ //       respawn.gameObject.SetActive(false);
         caught = false;
     }
 
     public bool isCaught() {
         return caught;
+    }
+
+    public bool getMoveStatus(){
+        return ableMove;
     }
 }

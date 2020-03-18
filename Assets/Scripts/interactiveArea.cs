@@ -17,6 +17,8 @@ public class interactiveArea : MonoBehaviour
     public Text DenyHintText;
     private playerMovement2 controller;
     public GameObject accuseTracker;
+    public GameObject Checklist;
+    public Animator GameOverBlackScreen;
 
     // Start is called before the first frame update
     void Start()
@@ -89,6 +91,8 @@ public class interactiveArea : MonoBehaviour
             actionCode = -1;
             hint.hide();
             player.gameObject.GetComponent<playerMovement2>().getCaught();
+            Checklist.SetActive(true);
+            GameOverBlackScreen.SetBool("Fade", true);
         }
     }
 
