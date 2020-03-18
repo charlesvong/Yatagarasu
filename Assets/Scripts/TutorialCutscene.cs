@@ -5,7 +5,7 @@ using Rewired;
 
 public class TutorialCutscene : MonoBehaviour
 {
-    private float cutsceneTimer = 20f;
+    private float cutsceneTimer = 26f;
     private bool TutorialFinished = false;
     private FungusDialogue dialogue;
     public Animator BlackSlide;
