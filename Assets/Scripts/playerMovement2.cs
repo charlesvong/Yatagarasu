@@ -13,7 +13,7 @@ public class playerMovement2 : MonoBehaviour
     private Vector3 warpPosition = Vector3.zero;
     public Camera camera;
     public Vector3 startPosition;
-    public interactableRespawn respawn;
+ //   public interactableRespawn respawn;
 
     public int controllerID;
     private Player player;
@@ -115,13 +115,13 @@ public class playerMovement2 : MonoBehaviour
     {
         WarpToPosition(startPosition);
         disableMove();
-        respawn.gameObject.SetActive(true);
+//        respawn.gameObject.SetActive(true);
         caught = true;
     }
 
     public void revive() {
         enableMove();
-        respawn.gameObject.SetActive(false);
+ //       respawn.gameObject.SetActive(false);
         caught = false;
     }
 
