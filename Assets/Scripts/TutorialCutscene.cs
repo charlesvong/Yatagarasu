@@ -10,6 +10,9 @@ public class TutorialCutscene : MonoBehaviour
     private FungusDialogue dialogue;
     public Animator BlackSlide;
     public Animator ButtonFade;
+    public Animator RookText;
+    public Animator VioletText;
+    public Animator RavenText;
 
     void Start(){
         dialogue = GetComponent<FungusDialogue>();
@@ -45,6 +48,9 @@ public class TutorialCutscene : MonoBehaviour
             TutorialFinished = true;
             BlackSlide.SetBool("Slide", true);
             ButtonFade.SetBool("Fade", true);
+            RookText.SetBool("Fade", true);
+            VioletText.SetBool("Fade", true);
+            RavenText.SetBool("Fade", true);
         }
     }
 

@@ -18,7 +18,7 @@ public class HintScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(controller.getController().GetButtonDown("Hint")){
+        if(controller.getController().GetButtonDown("Hint") && controller.getMoveStatus()){
             if(HintNotebookOn){
                 HintNotebook.SetActive(false);
                 HintNotebookOn = false;

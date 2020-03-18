@@ -27,6 +27,7 @@ public class infoProvider : MonoBehaviour
     private AudioSource HintSFX;
     private bool HintAcquired = false;
     public GameObject CheckmarkSprite;
+    public bool sitting;
 
     // Start is called before the first frame update
     void Start()
@@ -42,11 +43,13 @@ public class infoProvider : MonoBehaviour
     {
         if (providing && timer > 0.0f || accusing)
         {
-            Vector3 targetDirection = caller.transform.position - this.transform.position;
-            float singleStep = 5 * Time.deltaTime;
-            targetDirection.y = 0;
-            Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, singleStep, 0.0f);
-            this.transform.rotation = Quaternion.LookRotation(newDirection);
+            if(!sitting){
+                Vector3 targetDirection = caller.transform.position - this.transform.position;
+                float singleStep = 5 * Time.deltaTime;
+                targetDirection.y = 0;
+                Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, singleStep, 0.0f);
+                this.transform.rotation = Quaternion.LookRotation(newDirection);
+            }
             timer -= Time.deltaTime;
         }
         else if (providing) {
