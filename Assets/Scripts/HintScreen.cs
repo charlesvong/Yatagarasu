@@ -8,6 +8,8 @@ public class HintScreen : MonoBehaviour
 {
     private bool HintNotebookOn = false;
     public GameObject HintNotebook;
+    public GameObject NotebookOpen;
+    public GameObject NotebookClose;
     private playerMovement2 controller;
     // Start is called before the first frame update
     void Start()
@@ -24,12 +26,16 @@ public class HintScreen : MonoBehaviour
                 HintNotebookOn = false;
                 controller.getController().controllers.maps.LoadMap(ControllerType.Joystick, controller.controllerID, "HintScreen", "default", false);
                 controller.getController().controllers.maps.LoadMap(ControllerType.Joystick, controller.controllerID, "default", "default", true);
+                AudioSource BookClose = NotebookClose.GetComponent<AudioSource>();
+                BookClose.Play();
             }
             else{
                 HintNotebook.SetActive(true);
                 HintNotebookOn = true;
                 controller.getController().controllers.maps.LoadMap(ControllerType.Joystick, controller.controllerID, "HintScreen", "default", true);
                 controller.getController().controllers.maps.LoadMap(ControllerType.Joystick, controller.controllerID, "default", "default", false);
+                AudioSource BookOpen = NotebookOpen.GetComponent<AudioSource>();
+                BookOpen.Play();
             }
 
 
