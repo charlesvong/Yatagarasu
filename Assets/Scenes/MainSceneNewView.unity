@@ -409,7 +409,7 @@ MonoBehaviour:
   dManager: {fileID: 1147095882}
   isTarget: 0
   Hint: {fileID: -927199367670048503, guid: 11871b03a6876954d9295eb78fba5126, type: 3}
-  Hint2D: {fileID: 2800000, guid: 33ff456c98ebe8342bb5a0c77df24a16, type: 3}
+  Hint2D: {fileID: 2800000, guid: 70b5efd9b3a845d4f8dad460746d34ce, type: 3}
   hasTanukiOrOni: 0
   CheckmarkSprite: {fileID: 820345583}
   sitting: 0
@@ -1174,7 +1174,7 @@ MonoBehaviour:
   dManager: {fileID: 1147095882}
   isTarget: 0
   Hint: {fileID: -927199367670048503, guid: 02edd0aaf421d7641bc2f4b31a5f5547, type: 3}
-  Hint2D: {fileID: 2800000, guid: 7331d7b8a8652da4288389e24049c14d, type: 3}
+  Hint2D: {fileID: 2800000, guid: aa6968713aed36a41a59cb7d49394bd7, type: 3}
   hasTanukiOrOni: 0
   CheckmarkSprite: {fileID: 1144072540}
   sitting: 0
@@ -2204,7 +2204,7 @@ MonoBehaviour:
   dManager: {fileID: 1147095882}
   isTarget: 0
   Hint: {fileID: -927199367670048503, guid: 8cf770876d4171444a5d902cd8ffde8d, type: 3}
-  Hint2D: {fileID: 2800000, guid: 70b5efd9b3a845d4f8dad460746d34ce, type: 3}
+  Hint2D: {fileID: 2800000, guid: 697c9a18585966a4984e0fdb9f3e3317, type: 3}
   hasTanukiOrOni: 0
   CheckmarkSprite: {fileID: 1586775657}
   sitting: 0
@@ -7170,7 +7170,7 @@ MonoBehaviour:
   dManager: {fileID: 1147095882}
   isTarget: 1
   Hint: {fileID: -927199367670048503, guid: efcaec49b6b72cc428d589ea3bfa6e31, type: 3}
-  Hint2D: {fileID: 2800000, guid: fbb4deb27b6fbe64e85db73c2befd8c1, type: 3}
+  Hint2D: {fileID: 2800000, guid: 33ff456c98ebe8342bb5a0c77df24a16, type: 3}
   hasTanukiOrOni: 1
   CheckmarkSprite: {fileID: 1619797364}
   sitting: 0
@@ -16200,7 +16200,7 @@ MonoBehaviour:
   dManager: {fileID: 1147095882}
   isTarget: 0
   Hint: {fileID: -927199367670048503, guid: 11871b03a6876954d9295eb78fba5126, type: 3}
-  Hint2D: {fileID: 2800000, guid: da1d20fef44d934478c7cdb0df318efc, type: 3}
+  Hint2D: {fileID: 2800000, guid: 0995d65c50026864eb47a84cc1ea7ab4, type: 3}
   hasTanukiOrOni: 0
   CheckmarkSprite: {fileID: 1330607876}
   sitting: 0
@@ -16793,7 +16793,7 @@ MonoBehaviour:
   dManager: {fileID: 1147095882}
   isTarget: 0
   Hint: {fileID: 7863805054677736580, guid: 1ba57aec8f92a41e79d8ca9515ea0c18, type: 3}
-  Hint2D: {fileID: 2800000, guid: 70b5efd9b3a845d4f8dad460746d34ce, type: 3}
+  Hint2D: {fileID: 2800000, guid: e51e679fb34e7d546969f7740e087843, type: 3}
   hasTanukiOrOni: 0
   CheckmarkSprite: {fileID: 1398806234}
   sitting: 0
@@ -17192,7 +17192,7 @@ MonoBehaviour:
   dManager: {fileID: 1147095882}
   isTarget: 0
   Hint: {fileID: -927199367670048503, guid: 11871b03a6876954d9295eb78fba5126, type: 3}
-  Hint2D: {fileID: 2800000, guid: 33ff456c98ebe8342bb5a0c77df24a16, type: 3}
+  Hint2D: {fileID: 2800000, guid: 120da452a63b59e46b6ad5825f988e09, type: 3}
   hasTanukiOrOni: 0
   CheckmarkSprite: {fileID: 1080811835}
   sitting: 0
@@ -22401,7 +22401,7 @@ MonoBehaviour:
   dManager: {fileID: 1147095882}
   isTarget: 0
   Hint: {fileID: 505199586477379150, guid: ee40526ff9c374ad986b3ee767a41f96, type: 3}
-  Hint2D: {fileID: 2800000, guid: 33ff456c98ebe8342bb5a0c77df24a16, type: 3}
+  Hint2D: {fileID: 2800000, guid: fed17b35760951b4491e5449cda62817, type: 3}
   hasTanukiOrOni: 0
   CheckmarkSprite: {fileID: 1008613832}
   sitting: 0
@@ -33331,7 +33331,7 @@ MonoBehaviour:
   dManager: {fileID: 1147095882}
   isTarget: 0
   Hint: {fileID: -927199367670048503, guid: 6d122f1aea06248f0881d1cc2320de6f, type: 3}
-  Hint2D: {fileID: 2800000, guid: e51e679fb34e7d546969f7740e087843, type: 3}
+  Hint2D: {fileID: 2800000, guid: 85bee1967d6f25f48914a82bc4f54555, type: 3}
   hasTanukiOrOni: 0
   CheckmarkSprite: {fileID: 1259125772}
   sitting: 0
