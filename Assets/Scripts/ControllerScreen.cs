@@ -7,6 +7,7 @@ using Rewired;
 public class ControllerScreen : MonoBehaviour
 {
     private MainMenu MM;
+    public AudioSource SFX;
     void Start(){
         MM = GetComponent<MainMenu>();
     }
@@ -18,6 +19,7 @@ public class ControllerScreen : MonoBehaviour
             Player player = ReInput.players.Players[i];
             if(player.GetButtonDown("Start")){
                 MM.PlayGame();
+                SFX.Play();
             }
         }
     }
