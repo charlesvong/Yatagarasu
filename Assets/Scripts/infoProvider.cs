@@ -31,6 +31,7 @@ public class infoProvider : MonoBehaviour
 
     private bool escaping = false;
     public wayPoints escapeWaypoints;
+    private static bool destroy = false;
 
     // Start is called before the first frame update
     void Start()
@@ -57,6 +58,10 @@ public class infoProvider : MonoBehaviour
         }
         else if (providing) {
             endProviding(caller, caller_id);
+        }
+
+        if (destroy && !isTarget) {
+            Destroy(this.gameObject);
         }
         
     }
@@ -155,6 +160,7 @@ public class infoProvider : MonoBehaviour
 
     public void escape() {
         Debug.Log("escaping now");
+        destroy = true;
         this.GetComponent<AI>().agent.speed = 10.0f;
         this.GetComponent<AI>().agent.acceleration = 1000.0f;
         this.GetComponent<AI>().waypoints = escapeWaypoints;
