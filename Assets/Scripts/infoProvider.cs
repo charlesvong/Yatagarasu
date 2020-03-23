@@ -29,6 +29,9 @@ public class infoProvider : MonoBehaviour
     public GameObject CheckmarkSprite;
     public bool sitting;
 
+    private bool escaping = false;
+    public wayPoints escapeWaypoints;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -121,7 +124,8 @@ public class infoProvider : MonoBehaviour
     public bool accuse(int p_caller_id) {
         if (isTarget)
         {
-            victoryComponent.Victory();
+            escaping = true;
+            escape();
         }
         else {
             dialogue.CaughtDialogue(p_caller_id);
@@ -145,4 +149,18 @@ public class infoProvider : MonoBehaviour
         checkmark.gameObject.SetActive(true);
     }
 
+    public void caught() {
+        victoryComponent.Victory();
+    }
+
+    public void escape() {
+        Debug.Log("escaping now");
+        this.GetComponent<AI>().agent.speed = 10.0f;
+        this.GetComponent<AI>().agent.acceleration = 1000.0f;
+        this.GetComponent<AI>().waypoints = escapeWaypoints;
+    }
+
+    public bool isEscaping() {
+        return escaping;
+    }
 }
