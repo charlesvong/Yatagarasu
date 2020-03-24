@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Rewired;
 
 public class infoProvider : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class infoProvider : MonoBehaviour
     private bool accusing = false;
     public float talkTime;
     private float timer;
+    private float stunTimer = 0;
     private int caller_id;
     public dialogManager dManager;
     public bool isTarget = false;
@@ -30,6 +32,7 @@ public class infoProvider : MonoBehaviour
     public bool sitting;
 
     private bool escaping = false;
+    private bool escapStun = false;
     public wayPoints escapeWaypoints;
     private static bool destroy = false;
 
@@ -62,6 +65,27 @@ public class infoProvider : MonoBehaviour
 
         if (destroy && !isTarget) {
             Destroy(this.gameObject);
+        }
+
+        if (stunTimer > 0)
+        {
+            stunTimer -= Time.deltaTime;
+            for (int i = 0; i < ReInput.players.playerCount; i++)
+            {
+                Player player = ReInput.players.Players[i];
+                player.controllers.maps.LoadMap(ControllerType.Joystick, player.id, "default", "default", false);
+                Debug.Log("passed here");
+            }
+        }
+        else if (stunTimer <= 0 && isEscaping() && escapStun) {
+            for (int i = 0; i < ReInput.players.playerCount; i++)
+            {
+                Player player = ReInput.players.Players[i];
+                player.controllers.maps.LoadMap(ControllerType.Joystick, player.id, "default", "default", true);
+                Debug.Log("passed here");
+            }
+            escapStun = false;
+
         }
         
     }
@@ -129,7 +153,6 @@ public class infoProvider : MonoBehaviour
     public bool accuse(int p_caller_id) {
         if (isTarget)
         {
-            escaping = true;
             escape();
         }
         else {
@@ -164,6 +187,9 @@ public class infoProvider : MonoBehaviour
         this.GetComponent<AI>().agent.speed = 10.0f;
         this.GetComponent<AI>().agent.acceleration = 1000.0f;
         this.GetComponent<AI>().waypoints = escapeWaypoints;
+        stunTimer = 2;
+        escaping = true;
+        escapStun = true;
     }
 
     public bool isEscaping() {
