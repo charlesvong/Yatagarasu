@@ -179,10 +179,10 @@ public class infoProvider : MonoBehaviour
 
     public void caught() {
         victoryComponent.Victory();
+        this.GetComponent<AI>().Stand();
     }
 
     public void escape() {
-        Debug.Log("escaping now");
         destroy = true;
         this.GetComponent<AI>().agent.speed = 10.0f;
         this.GetComponent<AI>().agent.acceleration = 1000.0f;
