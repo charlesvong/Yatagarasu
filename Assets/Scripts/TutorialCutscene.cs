@@ -5,17 +5,21 @@ using Rewired;
 
 public class TutorialCutscene : MonoBehaviour
 {
-    private float cutsceneTimer = 26f;
+    public float cutsceneTimer;
     private bool TutorialFinished = false;
     private FungusDialogue dialogue;
+    private TutorialSceneController tutSceneController;
     public Animator BlackSlide;
     public Animator ButtonFade;
     public Animator RookText;
     public Animator VioletText;
     public Animator RavenText;
 
+    public bool isTutorialScene;
+
     void Start(){
         dialogue = GetComponent<FungusDialogue>();
+        tutSceneController = GetComponent<TutorialSceneController>();
     }
     // Update is called once per frame
     void Update()
@@ -32,25 +36,28 @@ public class TutorialCutscene : MonoBehaviour
                 player.controllers.maps.LoadMap(ControllerType.Joystick, player.id, "Cutscene", "default", true);
 
                 // Check if player pressed the skip button
-                if(player.GetButtonDown("Skip")){
+                if(player.GetButtonDown("Skip") && !isTutorialScene){
                     dialogue.Skip();
                     cutsceneTimer = 0;
                 }
             }
         }
         else{
-            for (int i = 0; i < ReInput.players.playerCount; i++)
-            {
-                Player player = ReInput.players.Players[i];
-                player.controllers.maps.LoadMap(ControllerType.Joystick, player.id, "default", "default", true);
-                player.controllers.maps.LoadMap(ControllerType.Joystick, player.id, "Cutscene", "default", false);
+            if(tutSceneController != null){
+                for (int i = 0; i < ReInput.players.playerCount; i++)
+                {
+                    Player player = ReInput.players.Players[i];
+                    player.controllers.maps.LoadMap(ControllerType.Joystick, player.id, "default", "default", true);
+                    player.controllers.maps.LoadMap(ControllerType.Joystick, player.id, "Cutscene", "default", false);
+                }
+                TutorialFinished = true;
+                BlackSlide.SetBool("Slide", true);
+                ButtonFade.SetBool("Fade", true);
+                RookText.SetBool("Fade", true);
+                VioletText.SetBool("Fade", true);
+                RavenText.SetBool("Fade", true);
             }
-            TutorialFinished = true;
-            BlackSlide.SetBool("Slide", true);
-            ButtonFade.SetBool("Fade", true);
-            RookText.SetBool("Fade", true);
-            VioletText.SetBool("Fade", true);
-            RavenText.SetBool("Fade", true);
+
         }
     }
 
