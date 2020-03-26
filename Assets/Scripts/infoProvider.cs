@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Rewired;
 
 public class infoProvider : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class infoProvider : MonoBehaviour
     private bool accusing = false;
     public float talkTime;
     private float timer;
+    private float stunTimer = 0;
     private int caller_id;
     public dialogManager dManager;
     public bool isTarget = false;
@@ -28,6 +30,11 @@ public class infoProvider : MonoBehaviour
     private bool HintAcquired = false;
     public GameObject CheckmarkSprite;
     public bool sitting;
+
+    private bool escaping = false;
+    private bool escapStun = false;
+    public wayPoints escapeWaypoints;
+    private static bool destroy = false;
 
     // Start is called before the first frame update
     void Start()
@@ -54,6 +61,31 @@ public class infoProvider : MonoBehaviour
         }
         else if (providing) {
             endProviding(caller, caller_id);
+        }
+
+        if (destroy && !isTarget) {
+            Destroy(this.gameObject);
+        }
+
+        if (stunTimer > 0)
+        {
+            stunTimer -= Time.deltaTime;
+            for (int i = 0; i < ReInput.players.playerCount; i++)
+            {
+                Player player = ReInput.players.Players[i];
+                player.controllers.maps.LoadMap(ControllerType.Joystick, player.id, "default", "default", false);
+                Debug.Log("passed here");
+            }
+        }
+        else if (stunTimer <= 0 && isEscaping() && escapStun) {
+            for (int i = 0; i < ReInput.players.playerCount; i++)
+            {
+                Player player = ReInput.players.Players[i];
+                player.controllers.maps.LoadMap(ControllerType.Joystick, player.id, "default", "default", true);
+                Debug.Log("passed here");
+            }
+            escapStun = false;
+
         }
         
     }
@@ -121,7 +153,7 @@ public class infoProvider : MonoBehaviour
     public bool accuse(int p_caller_id) {
         if (isTarget)
         {
-            victoryComponent.Victory();
+            escape();
         }
         else {
             dialogue.CaughtDialogue(p_caller_id);
@@ -145,4 +177,22 @@ public class infoProvider : MonoBehaviour
         checkmark.gameObject.SetActive(true);
     }
 
+    public void caught() {
+        victoryComponent.Victory();
+        this.GetComponent<AI>().Stand();
+    }
+
+    public void escape() {
+        destroy = true;
+        this.GetComponent<AI>().agent.speed = 10.0f;
+        this.GetComponent<AI>().agent.acceleration = 1000.0f;
+        this.GetComponent<AI>().waypoints = escapeWaypoints;
+        stunTimer = 2;
+        escaping = true;
+        escapStun = true;
+    }
+
+    public bool isEscaping() {
+        return escaping;
+    }
 }
