@@ -195,4 +195,8 @@ public class infoProvider : MonoBehaviour
     public bool isEscaping() {
         return escaping;
     }
+
+    public bool getHintAcquired(){
+        return HintAcquired;
+    }
 }
