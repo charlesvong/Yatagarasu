@@ -50,13 +50,14 @@ public class TutorialCutscene : MonoBehaviour
                     player.controllers.maps.LoadMap(ControllerType.Joystick, player.id, "default", "default", true);
                     player.controllers.maps.LoadMap(ControllerType.Joystick, player.id, "Cutscene", "default", false);
                 }
-                TutorialFinished = true;
                 BlackSlide.SetBool("Slide", true);
                 ButtonFade.SetBool("Fade", true);
                 RookText.SetBool("Fade", true);
                 VioletText.SetBool("Fade", true);
                 RavenText.SetBool("Fade", true);
             }
+            TutorialFinished = true;
+            
 
         }
     }
