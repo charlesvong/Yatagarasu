@@ -23,10 +23,10 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 2.21
+  m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.461
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2060839550}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -410,6 +410,9 @@ MonoBehaviour:
   Hint: {fileID: -927199367670048503, guid: 11871b03a6876954d9295eb78fba5126, type: 3}
   Hint2D: {fileID: 2800000, guid: 33ff456c98ebe8342bb5a0c77df24a16, type: 3}
   hasTanukiOrOni: 0
+  CheckmarkSprite: {fileID: 0}
+  sitting: 0
+  escapeWaypoints: {fileID: 0}
 --- !u!114 &5390489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -941,6 +944,9 @@ MonoBehaviour:
   player_id: 2
   DenyAccuseText: {fileID: 176625063}
   DenyHintText: {fileID: 1567644007}
+  accuseTracker: {fileID: 0}
+  Checklist: {fileID: 0}
+  GameOverBlackScreen: {fileID: 0}
 --- !u!1 &45849047
 GameObject:
   m_ObjectHideFlags: 0
@@ -1099,6 +1105,9 @@ MonoBehaviour:
   Hint: {fileID: -927199367670048503, guid: 02edd0aaf421d7641bc2f4b31a5f5547, type: 3}
   Hint2D: {fileID: 2800000, guid: 7331d7b8a8652da4288389e24049c14d, type: 3}
   hasTanukiOrOni: 0
+  CheckmarkSprite: {fileID: 0}
+  sitting: 0
+  escapeWaypoints: {fileID: 0}
 --- !u!114 &46944847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1509,6 +1518,9 @@ MonoBehaviour:
   Hint: {fileID: -927199367670048503, guid: 0ebbf67741e24c74eab33f0989931bbc, type: 3}
   Hint2D: {fileID: 2800000, guid: e51e679fb34e7d546969f7740e087843, type: 3}
   hasTanukiOrOni: 0
+  CheckmarkSprite: {fileID: 0}
+  sitting: 0
+  escapeWaypoints: {fileID: 0}
 --- !u!114 &62102707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2655,6 +2667,9 @@ MonoBehaviour:
   Hint: {fileID: -927199367670048503, guid: 8cf770876d4171444a5d902cd8ffde8d, type: 3}
   Hint2D: {fileID: 2800000, guid: 70b5efd9b3a845d4f8dad460746d34ce, type: 3}
   hasTanukiOrOni: 0
+  CheckmarkSprite: {fileID: 0}
+  sitting: 0
+  escapeWaypoints: {fileID: 0}
 --- !u!114 &94699726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3358,6 +3373,9 @@ MonoBehaviour:
   player_id: 1
   DenyAccuseText: {fileID: 450267707}
   DenyHintText: {fileID: 1067339395}
+  accuseTracker: {fileID: 0}
+  Checklist: {fileID: 0}
+  GameOverBlackScreen: {fileID: 0}
 --- !u!1 &122973683
 GameObject:
   m_ObjectHideFlags: 0
@@ -4711,6 +4729,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 2132366867}
+  VioletAccuse: {fileID: 0}
+  RookAccuse: {fileID: 0}
+  RavenAccuse: {fileID: 0}
 --- !u!114 &196612450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4851,6 +4872,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HintNotebook: {fileID: 471157703}
+  NotebookOpen: {fileID: 0}
+  NotebookClose: {fileID: 0}
 --- !u!114 &196612458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4864,6 +4887,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HintNotebook: {fileID: 471157703}
+  NotebookOpen: {fileID: 0}
+  NotebookClose: {fileID: 0}
 --- !u!114 &196612459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4877,6 +4902,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HintNotebook: {fileID: 471157703}
+  NotebookOpen: {fileID: 0}
+  NotebookClose: {fileID: 0}
 --- !u!1 &202143157
 GameObject:
   m_ObjectHideFlags: 0
@@ -6085,8 +6112,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76825cdf91d1f99408a1a2eeab810837, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cutsceneTimer: 0
   BlackSlide: {fileID: 987083639}
   ButtonFade: {fileID: 710229376}
+  RookText: {fileID: 0}
+  VioletText: {fileID: 0}
+  RavenText: {fileID: 0}
+  isTutorialScene: 0
 --- !u!4 &305865433
 Transform:
   m_ObjectHideFlags: 0
@@ -7707,6 +7739,9 @@ MonoBehaviour:
   Hint: {fileID: -927199367670048503, guid: efcaec49b6b72cc428d589ea3bfa6e31, type: 3}
   Hint2D: {fileID: 2800000, guid: fbb4deb27b6fbe64e85db73c2befd8c1, type: 3}
   hasTanukiOrOni: 1
+  CheckmarkSprite: {fileID: 0}
+  sitting: 0
+  escapeWaypoints: {fileID: 0}
 --- !u!114 &451908266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14727,6 +14762,9 @@ MonoBehaviour:
   player_id: 3
   DenyAccuseText: {fileID: 440790743}
   DenyHintText: {fileID: 1166434193}
+  accuseTracker: {fileID: 0}
+  Checklist: {fileID: 0}
+  GameOverBlackScreen: {fileID: 0}
 --- !u!1 &821582641
 GameObject:
   m_ObjectHideFlags: 0
@@ -15712,6 +15750,9 @@ MonoBehaviour:
   Hint: {fileID: -927199367670048503, guid: 11871b03a6876954d9295eb78fba5126, type: 3}
   Hint2D: {fileID: 2800000, guid: da1d20fef44d934478c7cdb0df318efc, type: 3}
   hasTanukiOrOni: 0
+  CheckmarkSprite: {fileID: 0}
+  sitting: 0
+  escapeWaypoints: {fileID: 0}
 --- !u!114 &863881522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16315,6 +16356,9 @@ MonoBehaviour:
   Hint: {fileID: 7863805054677736580, guid: 1ba57aec8f92a41e79d8ca9515ea0c18, type: 3}
   Hint2D: {fileID: 2800000, guid: 70b5efd9b3a845d4f8dad460746d34ce, type: 3}
   hasTanukiOrOni: 0
+  CheckmarkSprite: {fileID: 0}
+  sitting: 0
+  escapeWaypoints: {fileID: 0}
 --- !u!114 &926516600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16710,6 +16754,9 @@ MonoBehaviour:
   Hint: {fileID: -927199367670048503, guid: 11871b03a6876954d9295eb78fba5126, type: 3}
   Hint2D: {fileID: 2800000, guid: 33ff456c98ebe8342bb5a0c77df24a16, type: 3}
   hasTanukiOrOni: 0
+  CheckmarkSprite: {fileID: 0}
+  sitting: 0
+  escapeWaypoints: {fileID: 0}
 --- !u!114 &937944660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17124,6 +17171,9 @@ MonoBehaviour:
   Hint: {fileID: -927199367670048503, guid: 58017126283ba424d873394b5591de15, type: 3}
   Hint2D: {fileID: 2800000, guid: 81d2291720f90d646900166a4cb9669d, type: 3}
   hasTanukiOrOni: 0
+  CheckmarkSprite: {fileID: 0}
+  sitting: 0
+  escapeWaypoints: {fileID: 0}
 --- !u!114 &957937620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21013,6 +21063,9 @@ MonoBehaviour:
   Hint: {fileID: 505199586477379150, guid: ee40526ff9c374ad986b3ee767a41f96, type: 3}
   Hint2D: {fileID: 2800000, guid: 33ff456c98ebe8342bb5a0c77df24a16, type: 3}
   hasTanukiOrOni: 0
+  CheckmarkSprite: {fileID: 0}
+  sitting: 0
+  escapeWaypoints: {fileID: 0}
 --- !u!114 &1316530675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21505,6 +21558,9 @@ MonoBehaviour:
   Hint: {fileID: -927199367670048503, guid: bb080ab7efafc24488a4a9b517bc158c, type: 3}
   Hint2D: {fileID: 2800000, guid: 7331d7b8a8652da4288389e24049c14d, type: 3}
   hasTanukiOrOni: 0
+  CheckmarkSprite: {fileID: 0}
+  sitting: 0
+  escapeWaypoints: {fileID: 0}
 --- !u!114 &1327977198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23656,6 +23712,9 @@ MonoBehaviour:
   Hint: {fileID: -927199367670048503, guid: bb080ab7efafc24488a4a9b517bc158c, type: 3}
   Hint2D: {fileID: 2800000, guid: 70b5efd9b3a845d4f8dad460746d34ce, type: 3}
   hasTanukiOrOni: 0
+  CheckmarkSprite: {fileID: 0}
+  sitting: 0
+  escapeWaypoints: {fileID: 0}
 --- !u!114 &1453771193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24607,6 +24666,9 @@ MonoBehaviour:
   Hint: {fileID: -927199367670048503, guid: 8cf770876d4171444a5d902cd8ffde8d, type: 3}
   Hint2D: {fileID: 2800000, guid: 6062b257c88e1824fa26092339dbc135, type: 3}
   hasTanukiOrOni: 0
+  CheckmarkSprite: {fileID: 0}
+  sitting: 0
+  escapeWaypoints: {fileID: 0}
 --- !u!114 &1552322774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28548,6 +28610,9 @@ MonoBehaviour:
   Hint: {fileID: -927199367670048503, guid: 0ebbf67741e24c74eab33f0989931bbc, type: 3}
   Hint2D: {fileID: 2800000, guid: 81d2291720f90d646900166a4cb9669d, type: 3}
   hasTanukiOrOni: 0
+  CheckmarkSprite: {fileID: 0}
+  sitting: 0
+  escapeWaypoints: {fileID: 0}
 --- !u!114 &1724338018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28851,6 +28916,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 2132366867}
+  VioletAccuse: {fileID: 0}
+  RookAccuse: {fileID: 0}
+  RavenAccuse: {fileID: 0}
 --- !u!114 &1738979881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30158,6 +30226,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 2132366867}
+  VioletAccuse: {fileID: 0}
+  RookAccuse: {fileID: 0}
+  RavenAccuse: {fileID: 0}
 --- !u!114 &1831294850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31513,6 +31584,9 @@ MonoBehaviour:
   Hint: {fileID: -927199367670048503, guid: 6d122f1aea06248f0881d1cc2320de6f, type: 3}
   Hint2D: {fileID: 2800000, guid: e51e679fb34e7d546969f7740e087843, type: 3}
   hasTanukiOrOni: 0
+  CheckmarkSprite: {fileID: 0}
+  sitting: 0
+  escapeWaypoints: {fileID: 0}
 --- !u!114 &1958418787
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -43,7 +43,7 @@ public class TutorialCutscene : MonoBehaviour
             }
         }
         else{
-            if(tutSceneController != null){
+            if(tutSceneController == null){
                 for (int i = 0; i < ReInput.players.playerCount; i++)
                 {
                     Player player = ReInput.players.Players[i];
