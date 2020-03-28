@@ -19,6 +19,7 @@ public class interactiveArea : MonoBehaviour
     public GameObject accuseTracker;
     public GameObject Checklist;
     public Animator GameOverBlackScreen;
+    public TutorialSceneController onTutorial;
 
     // Start is called before the first frame update
     void Start()
@@ -88,11 +89,14 @@ public class interactiveArea : MonoBehaviour
     public void initiateAccusation(){
         bool result = interactObj.GetComponent<infoProvider>().accuse(player_id);
         if (!result) {
-            actionCode = -1;
-            hint.hide();
-            player.gameObject.GetComponent<playerMovement2>().getCaught();
-            Checklist.SetActive(true);
-            GameOverBlackScreen.SetBool("Fade", true);
+            if(onTutorial == null)
+            {
+                actionCode = -1;
+                hint.hide();
+                player.gameObject.GetComponent<playerMovement2>().getCaught();
+                Checklist.SetActive(true);
+                GameOverBlackScreen.SetBool("Fade", true);
+            }
         }
     }
 

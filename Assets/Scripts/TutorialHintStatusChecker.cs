@@ -12,7 +12,8 @@ public class TutorialHintStatusChecker : MonoBehaviour
     private infoProvider waiterProvider;
     private infoProvider guestProvider;
     private infoProvider guardProvider;
-    private bool nextStep = false;
+    private bool triggered = false;
+    public TutorialSceneController sceneController;
     void Start() {
         waiterProvider = waiter.GetComponent<infoProvider>();
         guestProvider = guest.GetComponent<infoProvider>();
@@ -20,13 +21,9 @@ public class TutorialHintStatusChecker : MonoBehaviour
     }
     void Update()
     {
-        if(waiterProvider.getHintAcquired() && guestProvider.getHintAcquired() && guardProvider.getHintAcquired()){
-            nextStep = true;
+        if(waiterProvider.getHintAcquired() && guestProvider.getHintAcquired() && guardProvider.getHintAcquired() && !triggered){
+            sceneController.secondDialogueTrigger();
+            triggered = true;
         }
-    }
-
-    public bool getNextStepStatus()
-    {
-        return nextStep;
     }
 }

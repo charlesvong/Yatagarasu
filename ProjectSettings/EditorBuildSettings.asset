@@ -8,12 +8,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 5f6943c77401351438de9a52eb238c71
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ControllerScreen.unity
     guid: 471bb2b942ee7e548ae76d550262ac64
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ExplanationScreen.unity
     guid: 92d1f3171822aef4aa0b7d259c3c193d
+  - enabled: 1
+    path: Assets/Scenes/SkipTutorialScene.unity
+    guid: d8d55ecc96eb7cc46b7416c3f18aed72
+  - enabled: 1
+    path: Assets/Scenes/TutScene.unity
+    guid: 92412af7ba136b44aa4165ed6d7729d6
   - enabled: 1
     path: Assets/Scenes/MainSceneNewView.unity
     guid: 8fa2e0db9d1aa5244bf4c58f1f421096
