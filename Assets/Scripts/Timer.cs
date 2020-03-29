@@ -95,4 +95,9 @@ public class Timer : MonoBehaviour
             }
         }
     }
+
+    public void setTimer(float value)
+    {
+        timer = value;
+    }
 }

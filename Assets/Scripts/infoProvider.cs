@@ -27,7 +27,7 @@ public class infoProvider : MonoBehaviour
     private VictoryScreen victoryComponent;
     private AudioSource AccuseSFX;
     private AudioSource HintSFX;
-    private bool HintAcquired = false;
+    public bool HintAcquired;
     public GameObject CheckmarkSprite;
     public bool sitting;
 
@@ -35,6 +35,8 @@ public class infoProvider : MonoBehaviour
     private bool escapStun = false;
     public wayPoints escapeWaypoints;
     private static bool destroy = false;
+    public TutorialSceneController onTutorial;
+    public Timer gloTimer;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +45,7 @@ public class infoProvider : MonoBehaviour
         dialogue = GetComponent<FungusDialogue>();
         AccuseSFX = this.transform.Find("AccuseSFX").GetComponent<AudioSource>();
         HintSFX = this.transform.Find("HintSFX").GetComponent<AudioSource>();
+        destroy = false;
     }
 
     // Update is called once per frame
@@ -64,7 +67,7 @@ public class infoProvider : MonoBehaviour
         }
 
         if (destroy && !isTarget) {
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
         }
 
         if (stunTimer > 0)
@@ -74,7 +77,6 @@ public class infoProvider : MonoBehaviour
             {
                 Player player = ReInput.players.Players[i];
                 player.controllers.maps.LoadMap(ControllerType.Joystick, player.id, "default", "default", false);
-                Debug.Log("passed here");
             }
         }
         else if (stunTimer <= 0 && isEscaping() && escapStun) {
@@ -82,7 +84,6 @@ public class infoProvider : MonoBehaviour
             {
                 Player player = ReInput.players.Players[i];
                 player.controllers.maps.LoadMap(ControllerType.Joystick, player.id, "default", "default", true);
-                Debug.Log("passed here");
             }
             escapStun = false;
 
@@ -153,11 +154,23 @@ public class infoProvider : MonoBehaviour
     public bool accuse(int p_caller_id) {
         if (isTarget)
         {
+            if(onTutorial != null)
+            {
+                onTutorial.thirdDialogueTrigger();
+            }
             escape();
         }
         else {
-            dialogue.CaughtDialogue(p_caller_id);
-            AccuseSFX.Play();
+            if(onTutorial != null)
+            {
+                onTutorial.wrongTargetDialogueTrigger();
+            }
+            else
+            {
+                dialogue.CaughtDialogue(p_caller_id);
+                AccuseSFX.Play();
+            }
+
 
         }
         return isTarget;
@@ -178,7 +191,14 @@ public class infoProvider : MonoBehaviour
     }
 
     public void caught() {
-        victoryComponent.Victory();
+        if(onTutorial == null)
+        {
+            victoryComponent.Victory();
+        }
+        else
+        {
+            onTutorial.finalDialogueTrigger();
+        }
         this.GetComponent<AI>().Stand();
     }
 
@@ -187,12 +207,18 @@ public class infoProvider : MonoBehaviour
         this.GetComponent<AI>().agent.speed = 10.0f;
         this.GetComponent<AI>().agent.acceleration = 1000.0f;
         this.GetComponent<AI>().waypoints = escapeWaypoints;
+        this.GetComponent<AI>().setDefaultMode(1);
         stunTimer = 2;
         escaping = true;
         escapStun = true;
+        gloTimer.setTimer(30f);
     }
 
     public bool isEscaping() {
         return escaping;
+    }
+
+    public bool getHintAcquired(){
+        return HintAcquired;
     }
 }
