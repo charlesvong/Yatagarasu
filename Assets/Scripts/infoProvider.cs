@@ -44,6 +44,7 @@ public class infoProvider : MonoBehaviour
         dialogue = GetComponent<FungusDialogue>();
         AccuseSFX = this.transform.Find("AccuseSFX").GetComponent<AudioSource>();
         HintSFX = this.transform.Find("HintSFX").GetComponent<AudioSource>();
+        destroy = false;
     }
 
     // Update is called once per frame
@@ -198,7 +199,6 @@ public class infoProvider : MonoBehaviour
             onTutorial.finalDialogueTrigger();
         }
         this.GetComponent<AI>().Stand();
-        destroy = false;
     }
 
     public void escape() {
@@ -206,7 +206,7 @@ public class infoProvider : MonoBehaviour
         this.GetComponent<AI>().agent.speed = 10.0f;
         this.GetComponent<AI>().agent.acceleration = 1000.0f;
         this.GetComponent<AI>().waypoints = escapeWaypoints;
-        this.GetComponent<AI>().Patrol();
+        this.GetComponent<AI>().setDefaultMode(1);
         stunTimer = 2;
         escaping = true;
         escapStun = true;
