@@ -208,6 +208,7 @@ public class infoProvider : MonoBehaviour
         this.GetComponent<AI>().agent.acceleration = 1000.0f;
         this.GetComponent<AI>().waypoints = escapeWaypoints;
         this.GetComponent<AI>().setDefaultMode(1);
+        this.transform.Find("guardModel").GetComponent<Animator>().SetBool("escaping", true);
         stunTimer = 2;
         escaping = true;
         escapStun = true;
