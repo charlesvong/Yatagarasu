@@ -36,6 +36,7 @@ public class infoProvider : MonoBehaviour
     public wayPoints escapeWaypoints;
     private static bool destroy = false;
     public TutorialSceneController onTutorial;
+    public Timer gloTimer;
 
     // Start is called before the first frame update
     void Start()
@@ -210,6 +211,7 @@ public class infoProvider : MonoBehaviour
         stunTimer = 2;
         escaping = true;
         escapStun = true;
+        gloTimer.setTimer(30f);
     }
 
     public bool isEscaping() {

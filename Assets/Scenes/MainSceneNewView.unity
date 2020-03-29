@@ -520,9 +520,12 @@ MonoBehaviour:
   Hint: {fileID: -927199367670048503, guid: 11871b03a6876954d9295eb78fba5126, type: 3}
   Hint2D: {fileID: 2800000, guid: 70b5efd9b3a845d4f8dad460746d34ce, type: 3}
   hasTanukiOrOni: 0
+  HintAcquired: 0
   CheckmarkSprite: {fileID: 820345583}
   sitting: 0
   escapeWaypoints: {fileID: 0}
+  onTutorial: {fileID: 0}
+  gloTimer: {fileID: 0}
 --- !u!114 &5390489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1184,6 +1187,7 @@ MonoBehaviour:
   accuseTracker: {fileID: 1491666626}
   Checklist: {fileID: 2012897904}
   GameOverBlackScreen: {fileID: 2060120971}
+  onTutorial: {fileID: 0}
 --- !u!1 &45849047
 GameObject:
   m_ObjectHideFlags: 0
@@ -1343,9 +1347,12 @@ MonoBehaviour:
   Hint: {fileID: -927199367670048503, guid: 02edd0aaf421d7641bc2f4b31a5f5547, type: 3}
   Hint2D: {fileID: 2800000, guid: aa6968713aed36a41a59cb7d49394bd7, type: 3}
   hasTanukiOrOni: 0
+  HintAcquired: 0
   CheckmarkSprite: {fileID: 1144072540}
   sitting: 0
   escapeWaypoints: {fileID: 0}
+  onTutorial: {fileID: 0}
+  gloTimer: {fileID: 0}
 --- !u!114 &46944847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1750,9 +1757,12 @@ MonoBehaviour:
   Hint: {fileID: -927199367670048503, guid: 0ebbf67741e24c74eab33f0989931bbc, type: 3}
   Hint2D: {fileID: 2800000, guid: e51e679fb34e7d546969f7740e087843, type: 3}
   hasTanukiOrOni: 0
+  HintAcquired: 0
   CheckmarkSprite: {fileID: 1903476727}
   sitting: 1
   escapeWaypoints: {fileID: 0}
+  onTutorial: {fileID: 0}
+  gloTimer: {fileID: 0}
 --- !u!114 &62102707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2375,9 +2385,12 @@ MonoBehaviour:
   Hint: {fileID: -927199367670048503, guid: 8cf770876d4171444a5d902cd8ffde8d, type: 3}
   Hint2D: {fileID: 2800000, guid: 697c9a18585966a4984e0fdb9f3e3317, type: 3}
   hasTanukiOrOni: 0
+  HintAcquired: 0
   CheckmarkSprite: {fileID: 1586775657}
   sitting: 0
   escapeWaypoints: {fileID: 0}
+  onTutorial: {fileID: 0}
+  gloTimer: {fileID: 0}
 --- !u!114 &94699726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3154,6 +3167,7 @@ MonoBehaviour:
   accuseTracker: {fileID: 1491666626}
   Checklist: {fileID: 471157703}
   GameOverBlackScreen: {fileID: 1342745441}
+  onTutorial: {fileID: 0}
 --- !u!1 &122973683
 GameObject:
   m_ObjectHideFlags: 0
@@ -7448,9 +7462,12 @@ MonoBehaviour:
   Hint: {fileID: -927199367670048503, guid: efcaec49b6b72cc428d589ea3bfa6e31, type: 3}
   Hint2D: {fileID: 2800000, guid: 33ff456c98ebe8342bb5a0c77df24a16, type: 3}
   hasTanukiOrOni: 1
+  HintAcquired: 0
   CheckmarkSprite: {fileID: 1619797364}
   sitting: 0
   escapeWaypoints: {fileID: 36579971}
+  onTutorial: {fileID: 0}
+  gloTimer: {fileID: 1981894544}
 --- !u!114 &451908266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15687,6 +15704,7 @@ MonoBehaviour:
   accuseTracker: {fileID: 1491666626}
   Checklist: {fileID: 1405570031}
   GameOverBlackScreen: {fileID: 972363321}
+  onTutorial: {fileID: 0}
 --- !u!1 &820345583
 GameObject:
   m_ObjectHideFlags: 0
@@ -17443,9 +17461,12 @@ MonoBehaviour:
   Hint: {fileID: -927199367670048503, guid: 11871b03a6876954d9295eb78fba5126, type: 3}
   Hint2D: {fileID: 2800000, guid: 0995d65c50026864eb47a84cc1ea7ab4, type: 3}
   hasTanukiOrOni: 0
+  HintAcquired: 0
   CheckmarkSprite: {fileID: 1330607876}
   sitting: 0
   escapeWaypoints: {fileID: 0}
+  onTutorial: {fileID: 0}
+  gloTimer: {fileID: 0}
 --- !u!114 &863881522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18037,9 +18058,12 @@ MonoBehaviour:
   Hint: {fileID: 7863805054677736580, guid: 1ba57aec8f92a41e79d8ca9515ea0c18, type: 3}
   Hint2D: {fileID: 2800000, guid: 50fd980c3215ffe46975031a9f738d56, type: 3}
   hasTanukiOrOni: 0
+  HintAcquired: 0
   CheckmarkSprite: {fileID: 1398806234}
   sitting: 0
   escapeWaypoints: {fileID: 0}
+  onTutorial: {fileID: 0}
+  gloTimer: {fileID: 0}
 --- !u!114 &926516600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18437,9 +18461,12 @@ MonoBehaviour:
   Hint: {fileID: -927199367670048503, guid: 11871b03a6876954d9295eb78fba5126, type: 3}
   Hint2D: {fileID: 2800000, guid: 120da452a63b59e46b6ad5825f988e09, type: 3}
   hasTanukiOrOni: 0
+  HintAcquired: 0
   CheckmarkSprite: {fileID: 1080811835}
   sitting: 0
   escapeWaypoints: {fileID: 0}
+  onTutorial: {fileID: 0}
+  gloTimer: {fileID: 0}
 --- !u!114 &937944660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18988,9 +19015,12 @@ MonoBehaviour:
   Hint: {fileID: -927199367670048503, guid: 58017126283ba424d873394b5591de15, type: 3}
   Hint2D: {fileID: 2800000, guid: 81d2291720f90d646900166a4cb9669d, type: 3}
   hasTanukiOrOni: 0
+  HintAcquired: 0
   CheckmarkSprite: {fileID: 156830605}
   sitting: 0
   escapeWaypoints: {fileID: 0}
+  onTutorial: {fileID: 0}
+  gloTimer: {fileID: 0}
 --- !u!114 &957937620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23966,9 +23996,12 @@ MonoBehaviour:
   Hint: {fileID: 505199586477379150, guid: ee40526ff9c374ad986b3ee767a41f96, type: 3}
   Hint2D: {fileID: 2800000, guid: fed17b35760951b4491e5449cda62817, type: 3}
   hasTanukiOrOni: 0
+  HintAcquired: 0
   CheckmarkSprite: {fileID: 1008613832}
   sitting: 0
   escapeWaypoints: {fileID: 0}
+  onTutorial: {fileID: 0}
+  gloTimer: {fileID: 0}
 --- !u!114 &1316530675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24576,9 +24609,12 @@ MonoBehaviour:
   Hint: {fileID: -927199367670048503, guid: bb080ab7efafc24488a4a9b517bc158c, type: 3}
   Hint2D: {fileID: 2800000, guid: 7331d7b8a8652da4288389e24049c14d, type: 3}
   hasTanukiOrOni: 0
+  HintAcquired: 0
   CheckmarkSprite: {fileID: 1229674292}
   sitting: 0
   escapeWaypoints: {fileID: 0}
+  onTutorial: {fileID: 0}
+  gloTimer: {fileID: 0}
 --- !u!114 &1327977198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26881,9 +26917,12 @@ MonoBehaviour:
   Hint: {fileID: -927199367670048503, guid: bb080ab7efafc24488a4a9b517bc158c, type: 3}
   Hint2D: {fileID: 2800000, guid: 83f249a5769057b469bf4dc524069fdc, type: 3}
   hasTanukiOrOni: 0
+  HintAcquired: 0
   CheckmarkSprite: {fileID: 2016106121}
   sitting: 0
   escapeWaypoints: {fileID: 0}
+  onTutorial: {fileID: 0}
+  gloTimer: {fileID: 0}
 --- !u!114 &1453771193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27884,9 +27923,12 @@ MonoBehaviour:
   Hint: {fileID: -927199367670048503, guid: 8cf770876d4171444a5d902cd8ffde8d, type: 3}
   Hint2D: {fileID: 2800000, guid: 6062b257c88e1824fa26092339dbc135, type: 3}
   hasTanukiOrOni: 0
+  HintAcquired: 0
   CheckmarkSprite: {fileID: 503167566}
   sitting: 0
   escapeWaypoints: {fileID: 0}
+  onTutorial: {fileID: 0}
+  gloTimer: {fileID: 0}
 --- !u!114 &1552322774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32392,9 +32434,12 @@ MonoBehaviour:
   Hint: {fileID: -927199367670048503, guid: 0ebbf67741e24c74eab33f0989931bbc, type: 3}
   Hint2D: {fileID: 2800000, guid: a88f3efacee4cf64f9bd1d03fd268326, type: 3}
   hasTanukiOrOni: 0
+  HintAcquired: 0
   CheckmarkSprite: {fileID: 833424964}
   sitting: 0
   escapeWaypoints: {fileID: 0}
+  onTutorial: {fileID: 0}
+  gloTimer: {fileID: 0}
 --- !u!114 &1724338018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35135,9 +35180,12 @@ MonoBehaviour:
   Hint: {fileID: -927199367670048503, guid: 6d122f1aea06248f0881d1cc2320de6f, type: 3}
   Hint2D: {fileID: 2800000, guid: 85bee1967d6f25f48914a82bc4f54555, type: 3}
   hasTanukiOrOni: 0
+  HintAcquired: 0
   CheckmarkSprite: {fileID: 1259125772}
   sitting: 0
   escapeWaypoints: {fileID: 0}
+  onTutorial: {fileID: 0}
+  gloTimer: {fileID: 0}
 --- !u!114 &1958418787
 MonoBehaviour:
   m_ObjectHideFlags: 0
