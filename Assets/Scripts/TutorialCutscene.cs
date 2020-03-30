@@ -32,8 +32,8 @@ public class TutorialCutscene : MonoBehaviour
             for (int i = 0; i < ReInput.players.playerCount; i++)
             {
                 Player player = ReInput.players.Players[i];
-                player.controllers.maps.LoadMap(ControllerType.Joystick, player.id, "default", "default", false);
-                player.controllers.maps.LoadMap(ControllerType.Joystick, player.id, "Cutscene", "default", true);
+                // player.controllers.maps.LoadMap(ControllerType.Joystick, player.id, "default", "default", false);
+                // player.controllers.maps.LoadMap(ControllerType.Joystick, player.id, "Cutscene", "default", true);
 
                 // Check if player pressed the skip button
                 if(player.GetButtonDown("Skip") && !isTutorialScene){

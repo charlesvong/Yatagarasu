@@ -14,6 +14,7 @@ public class PauseMenu : MonoBehaviour
     
     public GameObject RookAccuse;
     public GameObject RavenAccuse;
+    public TutorialSceneController tutController;
     private Button firstSelected;
     private playerMovement2 controller;
 
@@ -36,9 +37,23 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
-        controller.getController().controllers.maps.LoadMap(ControllerType.Joystick, controller.controllerID, "PauseMenu", "default", false);
-        controller.getController().controllers.maps.LoadMap(ControllerType.Joystick, controller.controllerID, "default", "default", true);
+
+        // check if they are in a cutscene
+        if(tutController == null)
+        {
+            controller.getController().controllers.maps.LoadMap(ControllerType.Joystick, controller.controllerID, "PauseMenu", "default", false);
+            controller.getController().controllers.maps.LoadMap(ControllerType.Joystick, controller.controllerID, "default", "default", true);
+        }
+        else if(!tutController.getShowingCutscene())
+        {
+            controller.getController().controllers.maps.LoadMap(ControllerType.Joystick, controller.controllerID, "PauseMenu", "default", false);
+            controller.getController().controllers.maps.LoadMap(ControllerType.Joystick, controller.controllerID, "default", "default", true);
+        }
+
+
         pauseMenuUI.SetActive(false);
+
+        // re-enable confirmation pop up screens
         if(VioletAccuse.gameObject.activeSelf){
             var button = VioletAccuse.GetComponentsInChildren<Button>()[0];
             button.Select();
@@ -72,6 +87,7 @@ public class PauseMenu : MonoBehaviour
         
         firstSelected = pauseMenuUI.GetComponentsInChildren<Button>()[0];
         firstSelected.Select();
+        firstSelected.OnSelect(null);
 
         Time.timeScale = 0;
         GameIsPaused = true;

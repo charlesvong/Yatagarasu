@@ -212,7 +212,10 @@ public class infoProvider : MonoBehaviour
         stunTimer = 2;
         escaping = true;
         escapStun = true;
-        gloTimer.setTimer(30f);
+        if(onTutorial == null)
+        {
+            gloTimer.setTimer(30f);
+        }
     }
 
     public bool isEscaping() {

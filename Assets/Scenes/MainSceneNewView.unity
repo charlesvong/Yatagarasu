@@ -3672,7 +3672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 196612448}
-  offset: {x: -3.5, y: 2.1, z: -3.5}
+  offset: {x: -3.5, y: 1.8, z: -3.5}
   collider: {fileID: 831350645}
   camera: {fileID: 1193892558}
 --- !u!4 &162397999
@@ -4554,6 +4554,7 @@ MonoBehaviour:
   VioletAccuse: {fileID: 1025262983}
   RookAccuse: {fileID: 77582434}
   RavenAccuse: {fileID: 1734662905}
+  tutController: {fileID: 0}
 --- !u!114 &196612450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20807,7 +20808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1831294847}
-  offset: {x: -3.5, y: 2.1, z: -3.5}
+  offset: {x: -3.5, y: 1.8, z: -3.5}
   collider: {fileID: 1424681140}
   camera: {fileID: 1331582493}
 --- !u!4 &1062607406
@@ -23189,9 +23190,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5c3134ee499f2c74d860b9e905c7bfda, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6aeae3b85207e154a8baa9de5b40f05d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.672
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -25894,7 +25895,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1738979879}
-  offset: {x: -3.5, y: 2.1, z: -3.5}
+  offset: {x: -3.5, y: 1.8, z: -3.5}
   collider: {fileID: 1288521686}
   camera: {fileID: 1604186791}
 --- !u!4 &1374274953
@@ -32747,6 +32748,7 @@ MonoBehaviour:
   VioletAccuse: {fileID: 1025262983}
   RookAccuse: {fileID: 77582434}
   RavenAccuse: {fileID: 1734662905}
+  tutController: {fileID: 0}
 --- !u!114 &1738979881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33845,6 +33847,7 @@ MonoBehaviour:
   VioletAccuse: {fileID: 1025262983}
   RookAccuse: {fileID: 77582434}
   RavenAccuse: {fileID: 1734662905}
+  tutController: {fileID: 0}
 --- !u!114 &1831294850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35960,6 +35963,7 @@ MonoBehaviour:
   GameOverScreen: {fileID: 2073924552}
   MainBGM: {fileID: 1259019422}
   GameOverBGM: {fileID: 1253733383}
+  VictoryScreen: {fileID: 1515214432}
 --- !u!4 &1981894545
 Transform:
   m_ObjectHideFlags: 0
@@ -37482,14 +37486,17 @@ MonoBehaviour:
       _descriptiveName: Player0
       _startPlaying: 1
       _defaultJoystickMaps:
-      - _enabled: 1
+      - _enabled: 0
         _categoryId: 0
         _layoutId: 0
       - _enabled: 0
         _categoryId: 1
         _layoutId: 0
-      - _enabled: 0
+      - _enabled: 1
         _categoryId: 3
+        _layoutId: 0
+      - _enabled: 0
+        _categoryId: 2
         _layoutId: 0
       - _enabled: 0
         _categoryId: 4
@@ -37516,14 +37523,17 @@ MonoBehaviour:
       _descriptiveName: Player1
       _startPlaying: 1
       _defaultJoystickMaps:
-      - _enabled: 1
+      - _enabled: 0
         _categoryId: 0
         _layoutId: 0
       - _enabled: 0
         _categoryId: 1
         _layoutId: 0
-      - _enabled: 0
+      - _enabled: 1
         _categoryId: 3
+        _layoutId: 0
+      - _enabled: 0
+        _categoryId: 2
         _layoutId: 0
       - _enabled: 0
         _categoryId: 4
@@ -37550,11 +37560,14 @@ MonoBehaviour:
       _descriptiveName: Player2
       _startPlaying: 1
       _defaultJoystickMaps:
-      - _enabled: 1
+      - _enabled: 0
         _categoryId: 0
         _layoutId: 0
       - _enabled: 0
         _categoryId: 1
+        _layoutId: 0
+      - _enabled: 1
+        _categoryId: 3
         _layoutId: 0
       - _enabled: 0
         _categoryId: 2
@@ -37941,6 +37954,28 @@ MonoBehaviour:
         _actionId: 6
         _elementType: 1
         _elementIdentifierId: 4
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 5
+        _elementType: 1
+        _elementIdentifierId: 22
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 1
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 5
+        _elementType: 1
+        _elementIdentifierId: 20
         _axisRange: 0
         _invert: 0
         _axisContribution: 0
@@ -38864,7 +38899,7 @@ PrefabInstance:
     - target: {fileID: 4100712499112992403, guid: bd7563b07bc75a34c8825601f82c15b1,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 28.17694
+      value: 31.292511
       objectReference: {fileID: 0}
     - target: {fileID: 4100712499112992403, guid: bd7563b07bc75a34c8825601f82c15b1,
         type: 3}
@@ -39094,7 +39129,12 @@ PrefabInstance:
     - target: {fileID: 4100712500293125722, guid: bd7563b07bc75a34c8825601f82c15b1,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -2.6
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100712500293125722, guid: bd7563b07bc75a34c8825601f82c15b1,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8469418
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4100712499112992402, guid: bd7563b07bc75a34c8825601f82c15b1, type: 3}
