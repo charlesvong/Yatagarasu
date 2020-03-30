@@ -20,6 +20,7 @@ public class Timer : MonoBehaviour
     private bool firstBanter = false;
     private bool secondBanter = false;
     private bool HurryUpReminder = false;
+    public GameObject VictoryScreen;
     private FungusDialogue dialogue;
 
     private AudioSource MainTheme;
@@ -42,6 +43,10 @@ public class Timer : MonoBehaviour
     {
         // Don't activate timer until cutscene is finished playing
         if(!cutscene.GetStatus()){
+            return;
+        }
+        if(VictoryScreen.gameObject.activeSelf)
+        {
             return;
         }
         if(timer > 0.5f)

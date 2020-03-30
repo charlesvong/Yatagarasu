@@ -33,10 +33,6 @@ public class TutorialSceneController : MonoBehaviour
     }
     void Update()
     {
-        if(showingCutscene)
-        {
-            cutsceneMode();
-        }
         if(showingGraphic)
         {
             for (int i = 0; i < ReInput.players.playerCount; i++)
@@ -72,6 +68,11 @@ public class TutorialSceneController : MonoBehaviour
                 }
             }
         }
+        // if(showingCutscene)
+        // {
+        //     cutsceneMode();
+        // }
+        
 
 
     }
@@ -84,6 +85,7 @@ public class TutorialSceneController : MonoBehaviour
             Player player_again = ReInput.players.Players[j];
             player_again.controllers.maps.LoadMap(ControllerType.Joystick, player_again.id, "default", "default", true);
             player_again.controllers.maps.LoadMap(ControllerType.Joystick, player_again.id, "Cutscene", "default", false);
+            player_again.controllers.maps.LoadMap(ControllerType.Joystick, player_again.id, "PauseMenu", "default", false);
         }
     }
 
@@ -94,16 +96,36 @@ public class TutorialSceneController : MonoBehaviour
         {
             Player player = ReInput.players.Players[i];
             player.controllers.maps.LoadMap(ControllerType.Joystick, player.id, "default", "default", false);
+            player.controllers.maps.LoadMap(ControllerType.Joystick, player.id, "Cutscene", "default", false);
+            player.controllers.maps.LoadMap(ControllerType.Joystick, player.id, "PauseMenu", "default", true);
+        }
+    }
+
+    public void graphicMode()
+    {
+        Debug.Log("Enter Graphic Mode");
+        for (int i = 0; i < ReInput.players.playerCount; i++)
+        {
+            Player player = ReInput.players.Players[i];
+            player.controllers.maps.LoadMap(ControllerType.Joystick, player.id, "default", "default", false);
+            player.controllers.maps.LoadMap(ControllerType.Joystick, player.id, "PauseMenu", "default", false);
+            player.controllers.maps.LoadMap(ControllerType.Joystick, player.id, "PauseMenu-Cutscene", "default", false);
             player.controllers.maps.LoadMap(ControllerType.Joystick, player.id, "Cutscene", "default", true);
         }
     }
     public void playTimeline()
     {
         firstCutscene.Play();
+        for (int i = 0; i < ReInput.players.playerCount; i++)
+        {
+            Player player = ReInput.players.Players[i];
+            player.controllers.maps.LoadMap(ControllerType.Joystick, player.id, "PauseMenu", "default", false);
+            player.controllers.maps.LoadMap(ControllerType.Joystick, player.id, "PauseMenu-Cutscene", "default", true);
+        }
     }
     public void showFirstGraphic()
     {
-        cutsceneMode();
+        graphicMode();
         firstGraphic.SetActive(true);
         SkipButton.SetActive(true);
         showingGraphic = true;
@@ -114,7 +136,7 @@ public class TutorialSceneController : MonoBehaviour
 
     public void showSecondGraphic()
     {
-        cutsceneMode();
+        graphicMode();
         secondGraphic.SetActive(true);
         SkipButton.SetActive(true);
         showingGraphic = true;
@@ -124,7 +146,7 @@ public class TutorialSceneController : MonoBehaviour
 
     public void showThirdGraphic()
     {
-        cutsceneMode();
+        graphicMode();
         thirdGraphic.SetActive(true);
         SkipButton.SetActive(true);
         showingGraphic = true;
@@ -173,5 +195,10 @@ public class TutorialSceneController : MonoBehaviour
     public void nextScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public bool getShowingCutscene()
+    {
+        return showingCutscene;
     }
 }
