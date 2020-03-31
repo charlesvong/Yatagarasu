@@ -37,6 +37,7 @@ public class infoProvider : MonoBehaviour
     private static bool destroy = false;
     public TutorialSceneController onTutorial;
     public Timer gloTimer;
+    public RemainingHints remainingHintController;
 
     // Start is called before the first frame update
     void Start()
@@ -106,6 +107,10 @@ public class infoProvider : MonoBehaviour
 
         if(!HintAcquired){
             setCheckmark();
+            if(remainingHintController != null)
+            {
+                remainingHintController.decreaseCount();
+            }
             HintAcquired = true;
         }
     }
