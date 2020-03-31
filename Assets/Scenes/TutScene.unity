@@ -1155,6 +1155,7 @@ MonoBehaviour:
   escapeWaypoints: {fileID: 0}
   onTutorial: {fileID: 305865434}
   gloTimer: {fileID: 0}
+  remainingHintController: {fileID: 0}
 --- !u!114 &94699726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8651,6 +8652,7 @@ MonoBehaviour:
   escapeWaypoints: {fileID: 2145443557}
   onTutorial: {fileID: 305865434}
   gloTimer: {fileID: 0}
+  remainingHintController: {fileID: 0}
 --- !u!114 &926516600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12661,6 +12663,7 @@ MonoBehaviour:
   escapeWaypoints: {fileID: 0}
   onTutorial: {fileID: 305865434}
   gloTimer: {fileID: 0}
+  remainingHintController: {fileID: 0}
 --- !u!114 &1316530675
 MonoBehaviour:
   m_ObjectHideFlags: 0

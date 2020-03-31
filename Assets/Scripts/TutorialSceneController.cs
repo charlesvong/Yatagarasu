@@ -68,10 +68,6 @@ public class TutorialSceneController : MonoBehaviour
                 }
             }
         }
-        // if(showingCutscene)
-        // {
-        //     cutsceneMode();
-        // }
         
 
 
@@ -136,21 +132,25 @@ public class TutorialSceneController : MonoBehaviour
 
     public void showSecondGraphic()
     {
-        graphicMode();
-        secondGraphic.SetActive(true);
-        SkipButton.SetActive(true);
-        showingGraphic = true;
-        showingSecondGraphic = true;
-        showingCutscene = true;
+        playMode();
+        // secondGraphic.SetActive(true);
+        // SkipButton.SetActive(true);
+        ObjectiveText.SetActive(true);
+        AccuseTutorialText.SetActive(true);
+        // showingGraphic = true;
+        // showingSecondGraphic = true;
+        showingCutscene = false;
     }
 
     public void showThirdGraphic()
     {
-        graphicMode();
-        thirdGraphic.SetActive(true);
-        SkipButton.SetActive(true);
-        showingGraphic = true;
-        showingThirdGraphic = true;
+        playMode();
+        // thirdGraphic.SetActive(true);
+        // SkipButton.SetActive(true);
+        ObjectiveText.SetActive(true);
+        EscapeTutorialText.SetActive(true);
+        // showingGraphic = true;
+        // showingThirdGraphic = true;
         showingCutscene = true;
     }
 
