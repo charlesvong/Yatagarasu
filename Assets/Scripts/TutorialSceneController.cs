@@ -48,20 +48,20 @@ public class TutorialSceneController : MonoBehaviour
                         ObjectiveText.SetActive(true);
                         HintTutorialText.SetActive(true);
                     }
-                    else if(showingSecondGraphic)
-                    {
-                        secondGraphic.SetActive(false);
-                        showingSecondGraphic = false;
-                        ObjectiveText.SetActive(true);
-                        AccuseTutorialText.SetActive(true);
-                    }
-                    else if(showingThirdGraphic)
-                    {
-                        thirdGraphic.SetActive(false);
-                        showingThirdGraphic = false;
-                        ObjectiveText.SetActive(true);
-                        EscapeTutorialText.SetActive(true);
-                    }
+                    // else if(showingSecondGraphic)
+                    // {
+                    //     secondGraphic.SetActive(false);
+                    //     showingSecondGraphic = false;
+                    //     ObjectiveText.SetActive(true);
+                    //     AccuseTutorialText.SetActive(true);
+                    // }
+                    // else if(showingThirdGraphic)
+                    // {
+                    //     thirdGraphic.SetActive(false);
+                    //     showingThirdGraphic = false;
+                    //     ObjectiveText.SetActive(true);
+                    //     EscapeTutorialText.SetActive(true);
+                    // }
                     showingGraphic = false;
                     showingCutscene = false;
                     playMode();
@@ -133,25 +133,17 @@ public class TutorialSceneController : MonoBehaviour
     public void showSecondGraphic()
     {
         playMode();
-        // secondGraphic.SetActive(true);
-        // SkipButton.SetActive(true);
         ObjectiveText.SetActive(true);
         AccuseTutorialText.SetActive(true);
-        // showingGraphic = true;
-        // showingSecondGraphic = true;
         showingCutscene = false;
     }
 
     public void showThirdGraphic()
     {
         playMode();
-        // thirdGraphic.SetActive(true);
-        // SkipButton.SetActive(true);
         ObjectiveText.SetActive(true);
         EscapeTutorialText.SetActive(true);
-        // showingGraphic = true;
-        // showingThirdGraphic = true;
-        showingCutscene = true;
+        showingCutscene = false;
     }
 
     public void secondDialogueTrigger()
