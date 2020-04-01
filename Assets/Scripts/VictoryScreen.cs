@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using Rewired;
 
 public class VictoryScreen : MonoBehaviour
@@ -34,5 +35,10 @@ public class VictoryScreen : MonoBehaviour
             MainTheme.Stop();
             VictoryTheme.Play();
         }
+    }
+
+    public void Credits()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

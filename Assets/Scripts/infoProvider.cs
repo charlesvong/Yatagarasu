@@ -221,12 +221,13 @@ public class infoProvider : MonoBehaviour
         escapStun = true;
         if(onTutorial == null)
         {
+            if(MainTheme.isPlaying){
+                MainTheme.Stop();
+                CatchBGM.Play();
+            }
             gloTimer.setTimer(30f);
         }
-        if(MainTheme.isPlaying){
-            MainTheme.Stop();
-            CatchBGM.Play();
-        }
+
     }
 
     public bool isEscaping() {

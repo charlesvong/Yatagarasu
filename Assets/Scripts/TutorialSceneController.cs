@@ -22,6 +22,7 @@ public class TutorialSceneController : MonoBehaviour
     public GameObject AccuseTutorialText;
     public GameObject EscapeTutorialText;
     public Animator SkipButtonFade;
+    public Animator blackFade;
     private bool showingGraphic = false;
     private bool showingFirstGraphic = false;
     private bool showingSecondGraphic = false;
@@ -186,7 +187,7 @@ public class TutorialSceneController : MonoBehaviour
 
     public void nextScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        blackFade.SetTrigger("FadeOut");
     }
 
     public bool getShowingCutscene()
