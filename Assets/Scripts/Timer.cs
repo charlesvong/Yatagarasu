@@ -12,6 +12,8 @@ public class Timer : MonoBehaviour
     [SerializeField] private GameObject GameOverScreen;
     [SerializeField] private GameObject MainBGM;
     [SerializeField] private GameObject GameOverBGM;
+    [SerializeField] private GameObject CatchBGM;
+    [SerializeField] private infoProvider target;
 
     private float timer;
     private bool selected = false;
@@ -20,11 +22,13 @@ public class Timer : MonoBehaviour
     private bool firstBanter = false;
     private bool secondBanter = false;
     private bool HurryUpReminder = false;
+    private bool catchline = false;
     public GameObject VictoryScreen;
     private FungusDialogue dialogue;
 
     private AudioSource MainTheme;
     private AudioSource GameOverTheme;
+    private AudioSource CatchTheme;
 
     private TutorialCutscene cutscene;
 
@@ -34,6 +38,7 @@ public class Timer : MonoBehaviour
         timer = maxTimer;
         dialogue = GetComponent<FungusDialogue>();
         MainTheme = MainBGM.GetComponent<AudioSource>();
+        CatchTheme = CatchBGM.GetComponent<AudioSource>();
         GameOverTheme = GameOverBGM.GetComponent<AudioSource>();
         cutscene = GameObject.Find("TutorialCutscene").GetComponent<TutorialCutscene>();
     }
@@ -56,6 +61,13 @@ public class Timer : MonoBehaviour
             int seconds = Mathf.FloorToInt(timer - minutes * 60);
             string readableTime = string.Format("{0:0}:{1:00}", minutes, seconds);
             uiText.text = readableTime;
+        }
+        if(target.isEscaping() && !catchline){
+            firstBanter = true;
+            secondBanter = true;
+            HurryUpReminder = true;
+            dialogue.CatchLine();
+            catchline = true;
         }
         if(timer <= 180f && !firstBanter){
             dialogue.banter();
@@ -94,8 +106,9 @@ public class Timer : MonoBehaviour
 
             // Stop main theme and start Game Over music
             
-            if(MainTheme.isPlaying){
+            if(MainTheme.isPlaying || CatchTheme.isPlaying){
                 MainTheme.Stop();
+                CatchTheme.Stop();
                 GameOverTheme.Play();
             }
         }

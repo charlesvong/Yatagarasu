@@ -25,6 +25,8 @@ public class infoProvider : MonoBehaviour
     private bool PopupState = false;
 
     private VictoryScreen victoryComponent;
+    public AudioSource CatchBGM;
+    public AudioSource MainTheme;
     private AudioSource AccuseSFX;
     private AudioSource HintSFX;
     public bool HintAcquired;
@@ -220,6 +222,10 @@ public class infoProvider : MonoBehaviour
         if(onTutorial == null)
         {
             gloTimer.setTimer(30f);
+        }
+        if(MainTheme.isPlaying){
+            MainTheme.Stop();
+            CatchBGM.Play();
         }
     }
 
