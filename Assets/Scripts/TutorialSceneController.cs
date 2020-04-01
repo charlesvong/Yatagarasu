@@ -22,6 +22,7 @@ public class TutorialSceneController : MonoBehaviour
     public GameObject AccuseTutorialText;
     public GameObject EscapeTutorialText;
     public Animator SkipButtonFade;
+    public Animator blackFade;
     private bool showingGraphic = false;
     private bool showingFirstGraphic = false;
     private bool showingSecondGraphic = false;
@@ -48,30 +49,26 @@ public class TutorialSceneController : MonoBehaviour
                         ObjectiveText.SetActive(true);
                         HintTutorialText.SetActive(true);
                     }
-                    else if(showingSecondGraphic)
-                    {
-                        secondGraphic.SetActive(false);
-                        showingSecondGraphic = false;
-                        ObjectiveText.SetActive(true);
-                        AccuseTutorialText.SetActive(true);
-                    }
-                    else if(showingThirdGraphic)
-                    {
-                        thirdGraphic.SetActive(false);
-                        showingThirdGraphic = false;
-                        ObjectiveText.SetActive(true);
-                        EscapeTutorialText.SetActive(true);
-                    }
+                    // else if(showingSecondGraphic)
+                    // {
+                    //     secondGraphic.SetActive(false);
+                    //     showingSecondGraphic = false;
+                    //     ObjectiveText.SetActive(true);
+                    //     AccuseTutorialText.SetActive(true);
+                    // }
+                    // else if(showingThirdGraphic)
+                    // {
+                    //     thirdGraphic.SetActive(false);
+                    //     showingThirdGraphic = false;
+                    //     ObjectiveText.SetActive(true);
+                    //     EscapeTutorialText.SetActive(true);
+                    // }
                     showingGraphic = false;
                     showingCutscene = false;
                     playMode();
                 }
             }
         }
-        // if(showingCutscene)
-        // {
-        //     cutsceneMode();
-        // }
         
 
 
@@ -136,22 +133,18 @@ public class TutorialSceneController : MonoBehaviour
 
     public void showSecondGraphic()
     {
-        graphicMode();
-        secondGraphic.SetActive(true);
-        SkipButton.SetActive(true);
-        showingGraphic = true;
-        showingSecondGraphic = true;
-        showingCutscene = true;
+        playMode();
+        ObjectiveText.SetActive(true);
+        AccuseTutorialText.SetActive(true);
+        showingCutscene = false;
     }
 
     public void showThirdGraphic()
     {
-        graphicMode();
-        thirdGraphic.SetActive(true);
-        SkipButton.SetActive(true);
-        showingGraphic = true;
-        showingThirdGraphic = true;
-        showingCutscene = true;
+        playMode();
+        ObjectiveText.SetActive(true);
+        EscapeTutorialText.SetActive(true);
+        showingCutscene = false;
     }
 
     public void secondDialogueTrigger()
@@ -194,7 +187,7 @@ public class TutorialSceneController : MonoBehaviour
 
     public void nextScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        blackFade.SetTrigger("FadeOut");
     }
 
     public bool getShowingCutscene()
