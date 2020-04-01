@@ -22810,6 +22810,7 @@ MonoBehaviour:
   uiText: {fileID: 1967581892}
   MainBGM: {fileID: 1259019422}
   GameOverBGM: {fileID: 1253733383}
+  CatchBGM: {fileID: 0}
 --- !u!4 &812073178
 Transform:
   m_ObjectHideFlags: 0

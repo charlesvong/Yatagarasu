@@ -13,6 +13,7 @@ public class GameOverTracker : MonoBehaviour
     [SerializeField] private Text uiText;
     [SerializeField] private GameObject MainBGM;
     [SerializeField] private GameObject GameOverBGM;
+    [SerializeField] private GameObject CatchBGM;
     private bool selected = false;
     private Button firstSelected;
 
@@ -48,8 +49,10 @@ public class GameOverTracker : MonoBehaviour
         // Stop main theme and start Game Over music
         AudioSource MainTheme = MainBGM.GetComponent<AudioSource>();
         AudioSource GameOverTheme = GameOverBGM.GetComponent<AudioSource>();
-        if(MainTheme.isPlaying){
+        AudioSource CatchTheme = CatchBGM.GetComponent<AudioSource>();
+        if(MainTheme.isPlaying || CatchTheme.isPlaying){
             MainTheme.Stop();
+            CatchTheme.Stop();
             GameOverTheme.Play();
         }
 
