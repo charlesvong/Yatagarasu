@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/ExplanationScreen.unity
     guid: 92d1f3171822aef4aa0b7d259c3c193d
   - enabled: 1
+    path: Assets/Scenes/IntroScene.unity
+    guid: a74f622cebfd9374d910364204312c35
+  - enabled: 1
     path: Assets/Scenes/SkipTutorialScene.unity
     guid: d8d55ecc96eb7cc46b7416c3f18aed72
   - enabled: 1
